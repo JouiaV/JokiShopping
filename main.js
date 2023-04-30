@@ -67,7 +67,7 @@ onValue(shoppinglistUncheckedInDB, function(snapshot) {
 onValue(shoppinglistCheckedInDB, function(snapshot) {
     if (!snapshot.exists()) {
         console.log("Ei ole mitään checked")
-        shoppingListCheckedElem.innerHTML = ""
+        shoppingListCheckedElem.innerHTML = "Ei ole otettuja ruokia..."
         return
     }
 
