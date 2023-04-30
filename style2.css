@@ -1,0 +1,131 @@
+
+body {
+    user-select: none;
+    font-family: monospace;
+    color: rgb(223, 145, 145);
+    background-image: linear-gradient(
+        45deg,
+        rgb(46, 31, 31),
+        rgb(31, 22, 22),
+        rgb(15, 13, 13)
+        );
+    background-size: 400%;
+    animation: bg-animation 20s infinite alternate;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+
+h1 {
+    text-align: center;
+    text-shadow: 0 0 10px rgb(223, 145, 145);
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    font-family: monospace;
+    font-size: 20px;
+    margin: 4px 0;
+    padding: 15px;
+    border: 0;
+    border-radius: 2vh;
+    background-color: rgb(172, 56, 56);
+    color: rgb(255, 234, 234);
+}
+
+button:active {
+    background-color: rgb(109, 33, 33);
+}
+
+
+input {
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    margin: 4px 0;
+    padding: 15px;
+    border: 0;
+    background-color: rgb(255, 194, 194);
+    border-radius: 2vh;
+    color: rgb(92, 24, 24);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid rgb(122, 31, 31);
+}
+
+
+.shopping-list {
+    font-size: 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.shopping-list li {
+    background-color: rgb(250, 223, 215);
+    padding: 15px;
+    border-radius: 2vh;
+    flex-grow: 1;
+    overflow: auto;
+    box-shadow: 0 0 5px 0 rgb(255, 232, 232);
+    color: rgb(148, 64, 64)
+}
+
+.checked li {
+    padding: auto;
+    display: flex;
+    padding: 0;
+    background-color: rgb(211, 211, 211);
+}
+
+.checked a {
+    margin: 0;
+    flex-grow: 1;
+    text-decoration: line-through;
+    padding: 15px;
+    color: rgb(80, 35, 35);
+}
+
+.remove {
+    margin: 0;
+    padding: 15px 15px;
+    font-size: 25px;
+    color: rgb(117, 48, 48);
+    background-color: rgb(192, 180, 180);
+    border-radius: 2vh;
+}
+
+.unchecked li:active {
+    background-color: rgb(110, 60, 60);
+}
+
+
