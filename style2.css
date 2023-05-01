@@ -25,6 +25,7 @@ body {
 
 
 h1 {
+    font-size: 33px;
     margin-top: 30px;
     text-align: center;
     text-shadow: 0 0 10px rgb(223, 145, 145);
@@ -41,10 +42,18 @@ h3 {
     text-align: center;
 }
 
+.by_text {
+    margin: 0;
+    margin-bottom: 10px;
+    color: rgb(143, 44, 44);
+    text-shadow: 0 0 5px rgb(53, 18, 18);
+}
+
+
 img {
     border-radius: 10000px;
     border: 4px solid rgb(121, 47, 47);
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px rgb(22, 4, 4);
 }
 
 .container {
