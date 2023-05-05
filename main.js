@@ -87,21 +87,53 @@ onValue(shoppinglistCheckedInDB, function(snapshot) {
 
 // UNCHECKED + + + + + + + + + + + + + + + + + +
 function addNewItemToUncheckedShoppingList(item) {
-
+    // ✓, ✔
     let itemID = item[0]
     let itemValue = item[1]
 
-    let newLiElem = document.createElement("li")
+    let liElem = document.createElement("li")
+    liElem.id = itemID
 
-    newLiElem.textContent = itemValue
+    let checkMarkElem = document.createElement("span")
+    checkMarkElem.textContent = "✓"
+    checkMarkElem.classList += "check_mark"
 
-    newLiElem.addEventListener("click", function() {
-        let exactLocationOfItemInDB = ref(database, `shoppingList/unchecked/${itemID}`)
-        remove(exactLocationOfItemInDB)
-        push(shoppinglistCheckedInDB, itemValue)
+    let dropdownElem = document.createElement("div")
+    dropdownElem.classList += "dropdown"
+
+    let dropdownContentElem = document.createElement("div")
+    dropdownContentElem.classList += " dropdown-content"
+    dropdownContentElem.classList += " hidden"
+    
+    let testPElem = document.createElement("p")
+    testPElem.textContent = "moikka, tämä on testi"
+
+    let textElem = document.createElement("a")
+    textElem.textContent = itemValue
+
+    checkMarkElem.addEventListener("click", function() {
+        window.setTimeout(() => {
+            let exactLocationOfItemInDB = ref(database, `shoppingList/unchecked/${itemID}`)
+            remove(exactLocationOfItemInDB)
+            push(shoppinglistCheckedInDB, itemValue)
+        }, 90);
+    })
+    
+    dropdownElem.addEventListener("click", function () {
+        // dropdownContentElem.classList.remove("hidden")
+        console.log("dp")
     })
 
-    shoppingListUncheckedElem.append(newLiElem)
+    dropdownContentElem.addEventListener("click", function () {
+        dropdownContentElem.classList += " hidden"
+    })
+
+    dropdownContentElem.append(testPElem)
+    dropdownElem.append(dropdownContentElem)
+    liElem.append(checkMarkElem)
+    dropdownElem.append(textElem)
+    liElem.append(dropdownElem)
+    shoppingListUncheckedElem.append(liElem)
 }
 
 
@@ -112,22 +144,28 @@ function addNewItemToCheckedShoppingList(item) {
     let itemValue = item[1]
 
     let newLiElem = document.createElement("li")
+    newLiElem.id = itemID
 
     let newSpanRemoveElem = document.createElement("span")
     newSpanRemoveElem.textContent = "x"
-    newSpanRemoveElem.classList += "remove"
+    newSpanRemoveElem.classList += "remove_mark"
 
     let newTextElem = document.createElement("a")
     newTextElem.textContent = itemValue
 
     newSpanRemoveElem.addEventListener("click", function() {
-        let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
-        remove(exactLocationOfItemInDB)
+        window.setTimeout(() => {
+            let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
+            remove(exactLocationOfItemInDB)
+        }, 90);
     })
+
     newTextElem.addEventListener("click", function() {
-        let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
-        remove(exactLocationOfItemInDB)
-        push(shoppinglistUncheckedInDB, itemValue)
+        window.setTimeout(() => {
+            let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
+            remove(exactLocationOfItemInDB)
+            push(shoppinglistUncheckedInDB, itemValue)
+        }, 90);
     })
 
     newLiElem.append(newSpanRemoveElem)

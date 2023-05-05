@@ -4,31 +4,14 @@ body {
     font-family: monospace;
     color: rgb(223, 145, 145);
     background-color: rgb(31, 22, 22);
-    /* background-image: linear-gradient(
-        45deg,
-        rgb(46, 31, 31),
-        rgb(31, 22, 22),
-        rgb(15, 13, 13)
-        );
-    background-size: 400%;
-    animation: bg-animation 20s infinite alternate; */
 }
-
-@keyframes bg-animation {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
-    }
-}
-
 
 h1 {
+    color: rgb(197, 75, 75);
     font-size: 33px;
     margin-top: 30px;
     text-align: center;
-    text-shadow: 0 0 10px rgb(223, 145, 145);
+    text-shadow: 0 0 10px rgb(128, 47, 47);
 }
 
 h2 {
@@ -49,11 +32,11 @@ h3 {
     text-shadow: 0 0 5px rgb(53, 18, 18);
 }
 
-
 img {
     border-radius: 10000px;
     border: 4px solid rgb(121, 47, 47);
     box-shadow: 0 0 15px rgb(22, 4, 4);
+    -webkit-user-drag: none;
 }
 
 .container {
@@ -117,22 +100,34 @@ input:focus {
 }
 
 .shopping-list li {
-    background-color: rgb(250, 223, 215);
     padding: 15px;
     border-radius: 2vh;
     flex-grow: 1;
     overflow: auto;
     box-shadow: 0 0 5px 0 rgb(46, 44, 44);
+    transition: all 0.09s;
+}
+
+.unchecked li {
     color: rgb(148, 64, 64);
+    background-color: rgb(250, 223, 215);
     border-bottom: 3px solid rgb(158, 143, 138);
+    display: flex;
+    padding: 0;
+}
+
+.unchecked a {
+    margin: 0;
+    flex-grow: 1;
+    padding: 15px;
 }
 
 .checked li {
-    padding: auto;
     display: flex;
     padding: 0;
     background-color: rgb(211, 211, 211);
     border-bottom: 3px solid rgb(100, 91, 88);
+    color: rgb(80, 35, 35);
 }
 
 .checked a {
@@ -140,10 +135,35 @@ input:focus {
     flex-grow: 1;
     text-decoration: line-through;
     padding: 15px;
-    color: rgb(80, 35, 35);
 }
 
-.remove {
+.unchecked li:active {
+    color: rgb(250, 223, 215);
+    background-color: rgb(110, 60, 60);
+    border-color: rgb(70, 26, 26);
+}
+
+.checked li:active {
+    color: rgb(211, 211, 211);
+    background-color: rgb(83, 63, 63);
+    border-color: rgb(46, 30, 30);
+}
+
+.check_mark {
+    margin: 0;
+    padding: 13px 13px;
+    font-size: 25px;
+    border-radius: 2vh;
+    background-color: rgb(209, 174, 161);
+    color: rgb(97, 41, 41);
+}
+
+.check_mark:active {
+    background-color: rgb(80, 0, 0);
+    color: rgb(255, 161, 161);
+}
+
+.remove_mark {
     margin: 0;
     padding: 15px 15px;
     font-size: 25px;
@@ -152,8 +172,34 @@ input:focus {
     border-radius: 2vh;
 }
 
-.unchecked li:active {
-    background-color: rgb(110, 60, 60);
+.remove_mark:active {
+    color: rgb(173, 58, 58);
+    background-color: rgb(59, 34, 34);;
+}
+
+
+.dropdown {
+    position: relative;
+    display: flex;
+    margin: 0;
+    /* background-color: rgb(99, 74, 41); */
+    flex-grow: 1;
+}
+
+.dropdown-content {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 0%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 0 1000px 1000px rgba(0, 0, 0, 0.5);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
 }
 
 
