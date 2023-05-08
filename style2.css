@@ -53,6 +53,7 @@ footer {
 }
 
 button {
+    /* cursor: pointer; */
     font-family: monospace;
     font-size: 20px;
     margin: 4px 0;
@@ -100,12 +101,13 @@ input:focus {
 }
 
 .shopping-list li {
+    /* cursor: pointer; */
     padding: 15px;
     border-radius: 2vh;
     flex-grow: 1;
     overflow: auto;
     box-shadow: 0 0 5px 0 rgb(46, 44, 44);
-    transition: all 0.09s;
+    transition: all 0.1s;
 }
 
 .unchecked li {
@@ -130,20 +132,20 @@ input:focus {
     color: rgb(80, 35, 35);
 }
 
-.checked a {
+.checked li a {
     margin: 0;
     flex-grow: 1;
     text-decoration: line-through;
     padding: 15px;
 }
 
-.unchecked li:active {
+.unchecked li.active, .unchecked li:active {
     color: rgb(250, 223, 215);
     background-color: rgb(110, 60, 60);
     border-color: rgb(70, 26, 26);
 }
 
-.checked li:active {
+.checked li.active, .checked li:active {
     color: rgb(211, 211, 211);
     background-color: rgb(83, 63, 63);
     border-color: rgb(46, 30, 30);
@@ -158,7 +160,7 @@ input:focus {
     color: rgb(97, 41, 41);
 }
 
-.check_mark:active {
+.check_mark.active, .check_mark:active {
     background-color: rgb(80, 0, 0);
     color: rgb(255, 161, 161);
 }
@@ -173,7 +175,7 @@ input:focus {
     font-style: bold;
 }
 
-.remove_mark:active {
+.remove_mark.active, .remove_mark:active {
     color: rgb(173, 58, 58);
     background-color: rgb(59, 34, 34);;
 }
@@ -202,4 +204,9 @@ input:focus {
     display: none;
 }
 
+.ei_ole_checked, .ei_ole_unchecked {
+    flex-grow: 1;
+    text-decoration: none;
+    color: rgb(158, 112, 112)
+}
 

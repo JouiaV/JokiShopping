@@ -17,7 +17,7 @@ const addButtonElem = document.querySelector("#add-button")
 const shoppingListUncheckedElem = document.querySelector("#shopping-list-unchecked")
 const shoppingListCheckedElem = document.querySelector("#shopping-list-checked")
 
-const shoppingItemAnimationTime = 200  // milliseconds
+const shoppingItemAnimationTime = 150  // milliseconds
 
 addButtonElem.addEventListener("click", add_clicked)
 
@@ -46,7 +46,7 @@ function isInputValid(input) {
 onValue(shoppinglistUncheckedInDB, function(snapshot) {
     if (!snapshot.exists()) {
         console.log("Ei ole mitään unchecked")
-        shoppingListUncheckedElem.innerHTML = "Lista on tyhjä..."
+        shoppingListUncheckedElem.innerHTML = "<a class='ei_ole_unchecked'>Lista on tyhjä...</a>"
         return
     }
 
@@ -68,7 +68,7 @@ onValue(shoppinglistUncheckedInDB, function(snapshot) {
 onValue(shoppinglistCheckedInDB, function(snapshot) {
     if (!snapshot.exists()) {
         console.log("Ei ole mitään checked")
-        shoppingListCheckedElem.innerHTML = "Ei ole otettuja ruokia..."
+        shoppingListCheckedElem.innerHTML = "<a class='ei_ole_checked'>Ei ole otettuja ruokia...</a>"
         return
     }
 
@@ -112,6 +112,8 @@ function addNewItemToUncheckedShoppingList(item) {
     textElem.textContent = itemValue
 
     checkMarkElem.addEventListener("click", function() {
+        checkMarkElem.classList += " active"
+        liElem.classList += " active"
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/unchecked/${itemID}`)
             remove(exactLocationOfItemInDB)
@@ -120,6 +122,7 @@ function addNewItemToUncheckedShoppingList(item) {
     })
     
     dropdownElem.addEventListener("click", function () {
+        // liElem.classList += "active"
         // dropdownContentElem.classList.remove("hidden")
         console.log("dp")
     })
@@ -154,6 +157,8 @@ function addNewItemToCheckedShoppingList(item) {
     newTextElem.textContent = itemValue
 
     newSpanRemoveElem.addEventListener("click", function() {
+        newLiElem.classList += " active"
+        newSpanRemoveElem.classList += " active"
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
             remove(exactLocationOfItemInDB)
@@ -161,6 +166,7 @@ function addNewItemToCheckedShoppingList(item) {
     })
 
     newTextElem.addEventListener("click", function() {
+        newLiElem.classList += " active"
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
             remove(exactLocationOfItemInDB)
