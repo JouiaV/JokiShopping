@@ -62,11 +62,13 @@ button {
     border-radius: 2vh;
     background-color: rgb(172, 56, 56);
     color: rgb(255, 234, 234);
-    border-bottom: 4px solid rgb(109, 33, 33);
+    border-bottom: 6px solid rgb(109, 33, 33);
+    transition: all 0.2s ease;
 }
 
 button:active {
-    background-color: rgb(109, 33, 33);
+    margin-top: 10px;
+    border-bottom: 0 solid rgb(109, 33, 33);
 }
 
 
