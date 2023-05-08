@@ -12,11 +12,12 @@ const database = getDatabase(app)
 const shoppinglistCheckedInDB = ref(database, "shoppingList/checked")
 const shoppinglistUncheckedInDB = ref(database, "shoppingList/unchecked")
 
-
 const inputFieldElem = document.querySelector("#input-field")
 const addButtonElem = document.querySelector("#add-button")
 const shoppingListUncheckedElem = document.querySelector("#shopping-list-unchecked")
 const shoppingListCheckedElem = document.querySelector("#shopping-list-checked")
+
+const shoppingItemAnimationTime = 200  // milliseconds
 
 addButtonElem.addEventListener("click", add_clicked)
 
@@ -87,7 +88,6 @@ onValue(shoppinglistCheckedInDB, function(snapshot) {
 
 // UNCHECKED + + + + + + + + + + + + + + + + + +
 function addNewItemToUncheckedShoppingList(item) {
-    // ✓, ✔
     let itemID = item[0]
     let itemValue = item[1]
 
@@ -95,7 +95,7 @@ function addNewItemToUncheckedShoppingList(item) {
     liElem.id = itemID
 
     let checkMarkElem = document.createElement("span")
-    checkMarkElem.textContent = "✓"
+    checkMarkElem.textContent = "✓"  // ✓, ✔
     checkMarkElem.classList += "check_mark"
 
     let dropdownElem = document.createElement("div")
@@ -116,7 +116,7 @@ function addNewItemToUncheckedShoppingList(item) {
             let exactLocationOfItemInDB = ref(database, `shoppingList/unchecked/${itemID}`)
             remove(exactLocationOfItemInDB)
             push(shoppinglistCheckedInDB, itemValue)
-        }, 90);
+        }, shoppingItemAnimationTime);
     })
     
     dropdownElem.addEventListener("click", function () {
@@ -157,7 +157,7 @@ function addNewItemToCheckedShoppingList(item) {
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
             remove(exactLocationOfItemInDB)
-        }, 90);
+        }, shoppingItemAnimationTime);
     })
 
     newTextElem.addEventListener("click", function() {
@@ -165,7 +165,7 @@ function addNewItemToCheckedShoppingList(item) {
             let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
             remove(exactLocationOfItemInDB)
             push(shoppinglistUncheckedInDB, itemValue)
-        }, 90);
+        }, shoppingItemAnimationTime);
     })
 
     newLiElem.append(newSpanRemoveElem)

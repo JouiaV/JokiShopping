@@ -170,6 +170,7 @@ input:focus {
     color: rgb(117, 48, 48);
     background-color: rgb(192, 180, 180);
     border-radius: 2vh;
+    font-style: bold;
 }
 
 .remove_mark:active {
@@ -182,7 +183,6 @@ input:focus {
     position: relative;
     display: flex;
     margin: 0;
-    /* background-color: rgb(99, 74, 41); */
     flex-grow: 1;
 }
 
