@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"
-import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
+import { getDatabase, ref, push, set, onValue, remove } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 
 const appSettings = {
@@ -16,6 +16,7 @@ const inputFieldElem = document.querySelector("#input-field")
 const addButtonElem = document.querySelector("#add-button")
 const shoppingListUncheckedElem = document.querySelector("#shopping-list-unchecked")
 const shoppingListCheckedElem = document.querySelector("#shopping-list-checked")
+const dropDownListElem = document.querySelector("#drop-down-list")
 
 const shoppingItemAnimationTime = 150  // milliseconds
 
@@ -23,11 +24,15 @@ addButtonElem.addEventListener("click", add_clicked)
 
 function add_clicked() {
     let inputValue = inputFieldElem.value
-
-    if (isInputValid(inputValue)) {
-        push(shoppinglistUncheckedInDB, inputValue)
-    }
-    inputFieldElem.value = ""
+    addButtonElem.classList += " active" 
+    window.setTimeout(() => {
+        addButtonElem.classList -= " active"
+        if (isInputValid(inputValue)) {
+            push(shoppinglistUncheckedInDB, inputValue)
+            inputFieldElem.value = ""
+        }
+    }, 125)
+    
 }
 
 function isInputValid(input) {
@@ -86,34 +91,60 @@ onValue(shoppinglistCheckedInDB, function(snapshot) {
 })
 
 
+// ========================================================================================================
 // UNCHECKED + + + + + + + + + + + + + + + + + +
 function addNewItemToUncheckedShoppingList(item) {
     let itemID = item[0]
     let itemValue = item[1]
 
+    // Main li elem
     let liElem = document.createElement("li")
     liElem.id = itemID
 
-    let checkMarkElem = document.createElement("span")
-    checkMarkElem.textContent = "✓"  // ✓, ✔
-    checkMarkElem.classList += "check_mark"
-
-    let dropdownElem = document.createElement("div")
-    dropdownElem.classList += "dropdown"
-
-    let dropdownContentElem = document.createElement("div")
-    dropdownContentElem.classList += " dropdown-content"
-    dropdownContentElem.classList += " hidden"
-    
-    let testPElem = document.createElement("p")
-    testPElem.textContent = "moikka, tämä on testi"
-
+    // List item value
     let textElem = document.createElement("a")
     textElem.textContent = itemValue
 
+    // Check mark button
+    let checkMarkElem = document.createElement("span")
+    checkMarkElem.textContent = "✓"  // ✓, ✔
+    checkMarkElem.classList.add("check_mark")
+
+    // Dropdown trigger
+    let dropdownElem = document.createElement("div")
+    dropdownElem.classList.add("dropdown")
+
+    // Dropdown content
+    let dropdownContentElem = document.createElement("div")
+    dropdownContentElem.classList.add("dropdown-content")
+    dropdownContentElem.classList.add("hidden")
+    
+    // test
+    let testPElem = document.createElement("p")
+    testPElem.classList.add("muokkaa-p")
+    testPElem.textContent = "Muokkaa: " + itemValue
+
+    // Dropdown input edit value elem
+    let editValueInputElem = document.createElement("input")
+    editValueInputElem.classList.add("editValueInput")
+    editValueInputElem.type = "text"
+    editValueInputElem.placeholder = "kirjoita ruoka"
+    editValueInputElem.value = itemValue
+
+    // Dropdown button save value elem
+    let saveValueBtnElem = document.createElement("button")
+    saveValueBtnElem.classList.add("saveValueBtn")
+    saveValueBtnElem.textContent = "Tallenna"
+
+    // Span exit button
+    let exitEditBtn = document.createElement("span")
+    exitEditBtn.classList.add("exitEditBtn")
+    exitEditBtn.textContent = "x"
+
+    // On checkmark click - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     checkMarkElem.addEventListener("click", function() {
-        checkMarkElem.classList += " active"
-        liElem.classList += " active"
+        checkMarkElem.classList.add("active")
+        liElem.classList.add("active")
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/unchecked/${itemID}`)
             remove(exactLocationOfItemInDB)
@@ -121,18 +152,32 @@ function addNewItemToUncheckedShoppingList(item) {
         }, shoppingItemAnimationTime);
     })
     
+    // Dropdown triggerred - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     dropdownElem.addEventListener("click", function () {
-        // liElem.classList += "active"
-        // dropdownContentElem.classList.remove("hidden")
-        console.log("dp")
+        liElem.classList.add("active")
+        dropdownContentElem.classList.remove("hidden")
+        console.log("editor open")
     })
 
-    dropdownContentElem.addEventListener("click", function () {
-        dropdownContentElem.classList += " hidden"
+    // Exit dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    exitEditBtn.addEventListener("click", function () {
+        dropdownContentElem.classList.add("hidden")
+        liElem.classList.remove("active")
     })
 
+    // Save dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    saveValueBtnElem.addEventListener("click", function () {
+        let exactLocationOfItemInDB = ref(database, `shoppingList/unchecked/${itemID}`)
+        set(exactLocationOfItemInDB, editValueInputElem.value)
+        dropdownContentElem.classList.add("hidden")
+        liElem.classList.remove("active")
+    })
+
+    dropdownContentElem.append(exitEditBtn)
     dropdownContentElem.append(testPElem)
-    dropdownElem.append(dropdownContentElem)
+    dropdownContentElem.append(editValueInputElem)
+    dropdownContentElem.append(saveValueBtnElem)
+    dropDownListElem.append(dropdownContentElem)
     liElem.append(checkMarkElem)
     dropdownElem.append(textElem)
     liElem.append(dropdownElem)
@@ -140,6 +185,7 @@ function addNewItemToUncheckedShoppingList(item) {
 }
 
 
+// ========================================================================================================
 // CHECKED - - - - - - - - - - - - - - - - - - - - - 
 function addNewItemToCheckedShoppingList(item) {
 
@@ -151,14 +197,14 @@ function addNewItemToCheckedShoppingList(item) {
 
     let newSpanRemoveElem = document.createElement("span")
     newSpanRemoveElem.textContent = "x"
-    newSpanRemoveElem.classList += "remove_mark"
+    newSpanRemoveElem.classList.add("remove_mark")
 
     let newTextElem = document.createElement("a")
     newTextElem.textContent = itemValue
 
     newSpanRemoveElem.addEventListener("click", function() {
-        newLiElem.classList += " active"
-        newSpanRemoveElem.classList += " active"
+        newLiElem.classList.add("active")
+        newSpanRemoveElem.classList.add("active")
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
             remove(exactLocationOfItemInDB)
@@ -166,7 +212,7 @@ function addNewItemToCheckedShoppingList(item) {
     })
 
     newTextElem.addEventListener("click", function() {
-        newLiElem.classList += " active"
+        newLiElem.classList.add("active")
         window.setTimeout(() => {
             let exactLocationOfItemInDB = ref(database, `shoppingList/checked/${itemID}`)
             remove(exactLocationOfItemInDB)
