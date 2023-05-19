@@ -1,0 +1,67 @@
+
+.color-picker {
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin: 0; */
+}
+
+.rd {
+    margin: 0;
+}
+
+.rd input[type="radio"] {
+    appearance: none;
+}
+
+.rd div {
+    margin: 3px;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid transparent;
+    border-radius: 100000px;
+    transition: all 0.6s ease;
+}
+
+.rd div.red {
+    background-color: rgb(190, 98, 98);
+}
+.rd input[type="radio"]:checked + div.red {
+    background-color: rgb(105, 42, 42);
+    border-color: rgb(190, 98, 98);
+}
+
+.rd div.orange {
+    background-color: rgb(160, 92, 53);
+}
+.rd input[type="radio"]:checked + div.orange {
+    background-color: rgb(107, 68, 30);
+    border-color: rgb(160, 92, 53);
+}
+
+.rd div.yellow {
+    background-color: rgb(158, 160, 53);
+}
+.rd input[type="radio"]:checked + div.yellow {
+    background-color: rgb(117, 105, 50);
+    border-color: rgb(158, 160, 53);
+}
+
+.rd div.green {
+    background-color: rgb(62, 160, 53);
+}
+.rd input[type="radio"]:checked + div.green {
+    background-color: rgb(46, 107, 40);
+    border-color: rgb(62, 160, 53);
+}
+
+.rd div.blue {
+    background-color: rgb(53, 130, 160);
+}
+.rd input[type="radio"]:checked + div.blue {
+    background-color: rgb(23, 88, 114);
+    border-color: rgb(53, 130, 160);
+}
+

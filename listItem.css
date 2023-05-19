@@ -1,0 +1,105 @@
+
+
+.shopping-list {
+    font-size: 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.shopping-list li {
+    padding: 15px;
+    border-radius: 10px;
+    flex-grow: 1;
+    overflow: auto;
+    box-shadow: 0 0 5px 0 rgb(46, 44, 44);
+    transition: all 0.1s;
+}
+
+
+/* UNCHECKED =========================================================================================================  */
+.unchecked li {
+    color: rgb(148, 64, 64);
+    background-color: rgb(250, 223, 215);
+    border-bottom: 3px solid rgb(158, 143, 138);
+    display: flex;
+    padding: 0;
+}
+
+.unchecked li.active, .unchecked li:active {
+    color: rgb(250, 223, 215);
+    background-color: rgb(110, 60, 60);
+    border-color: rgb(70, 26, 26);
+}
+
+.unchecked a {
+    margin: 0;
+    flex-grow: 1;
+    padding: 15px;
+}
+
+/* Check mark - - - - - - - - - */
+.check_mark {
+    margin: 0;
+    padding: 13px 13px;
+    font-size: 25px;
+    background-color: rgb(209, 174, 161);
+    color: rgb(97, 41, 41);
+}
+
+.check_mark.active, .check_mark:active {
+    background-color: rgb(80, 0, 0);
+    color: rgb(255, 161, 161);
+}
+
+
+/* CHECKED &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+.checked li {
+    display: flex;
+    padding: 0;
+    background-color: rgb(211, 211, 211);
+    border-bottom: 3px solid rgb(100, 91, 88);
+    color: rgb(80, 35, 35);
+}
+
+.checked li.active, .checked li:active {
+    color: rgb(211, 211, 211);
+    background-color: rgb(83, 63, 63);
+    border-color: rgb(46, 30, 30);
+}
+
+.checked li a {
+    margin: 0;
+    flex-grow: 1;
+    text-decoration: line-through;
+    padding: 15px;
+}
+
+/* Remove mark - - - - - - - - - */
+.remove_mark {
+    margin: 0;
+    padding: 15px 15px;
+    font-size: 25px;
+    color: rgb(117, 48, 48);
+    background-color: rgb(192, 180, 180);
+    font-style: bold;
+}
+
+.remove_mark.active, .remove_mark:active {
+    color: rgb(173, 58, 58);
+    background-color: rgb(59, 34, 34);;
+}
+
+/* a Tekstit kun listat ovat tyhjiä */
+.ei_ole_checked, .ei_ole_unchecked {
+    flex-grow: 1;
+    text-decoration: none;
+    color: rgb(158, 112, 112)
+}
+
+
+

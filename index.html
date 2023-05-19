@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,28 +9,62 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="listItem.css">
+    <link rel="stylesheet" href="listItem_colors.css">
+    <link rel="stylesheet" href="popup_edit.css">
+    <link rel="stylesheet" href="color-picker.css">
+    <script type="module" src="main.js"></script>
+
     <title>JokiShopList</title>
 </head>
+
 <body>
+
     <div class="container">
+
         <h1>JokiShopList</h1>
         <h3 class="by_text">MADE BY: JossiTheJokirapuProductions</h3>
         <img src="JokiShopList_LOGO.png" alt="JokiShopListLogo">
         
-        <h3>Kerro mitä haluat kaupasta</h3>
+        <h3>Valitse väri:</h3>
+        
+        <div class="color-picker">
+            <label class="rd">
+                <input type="radio" name="color-picker" id="red" checked>
+                <div class="red"></div>
+            </label>
+            <label class="rd">
+                <input type="radio" name="color-picker" id="orange">
+                <div class="orange"></div>
+            </label>
+            <label class="rd">
+                <input type="radio" name="color-picker" id="yellow">
+                <div class="yellow"></div>
+            </label>
+            <label class="rd">
+                <input type="radio" name="color-picker" id="green">
+                <div class="green"></div>
+            </label>
+            <label class="rd">
+                <input type="radio" name="color-picker" id="blue">
+                <div class="blue"></div>
+            </label>
+        </div>
 
         <input type="text" id="input-field" placeholder="kirjoita ruoka">
-        <button id="add-button">Lisää</button>
+        <button id="add-button" class="add-button">Lisää</button>
 
-        <h2>Lista:</h2>
+        <h2 class="lista_otetut">Lista:</h2>
 
         <ul id="shopping-list-unchecked" class="shopping-list unchecked">
+            <a>Odotetaan yhteyttä dataan...</a>
         </ul>
-
-        <h2>Otetut:</h2>
+        
+        <h2 class="lista_otetut">Otetut:</h2>
 
         <ul id="shopping-list-checked" class="shopping-list checked">
+            <a>Odotetaan yhteyttä dataan...</a>
         </ul>  
 
         <ul class="drop-down-list" id="drop-down-list">
@@ -38,9 +73,11 @@
         <footer>
             <p>Det här är <b>JossiJokirapuProductions</b> website, tack!</p>
         </footer>
+
     </div>
-    <script type="module" src="main.js"></script>
+
 </body> 
+
 </html>
 
 
