@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* margin: 0; */
+    margin: 0;
+    margin-bottom: 4px;
 }
 
 .rd {
@@ -16,15 +17,17 @@
 }
 
 .rd div {
-    margin: 3px;
+    margin-block: 0;
+    margin-inline: 3px;
     height: 40px;
     width: 40px;
-    background-color: rgb(255, 255, 255);
     border: 3px solid transparent;
     border-radius: 100000px;
     transition: all 0.6s ease;
 }
 
+
+/* Red */
 .rd div.red {
     background-color: rgb(190, 98, 98);
 }
@@ -33,32 +36,36 @@
     border-color: rgb(190, 98, 98);
 }
 
+/* Orange */
 .rd div.orange {
-    background-color: rgb(160, 92, 53);
+    background-color: rgb(216, 164, 115);
 }
 .rd input[type="radio"]:checked + div.orange {
     background-color: rgb(107, 68, 30);
     border-color: rgb(160, 92, 53);
 }
 
+/* Yellow */
 .rd div.yellow {
-    background-color: rgb(158, 160, 53);
+    background-color: rgb(206, 207, 109);
 }
 .rd input[type="radio"]:checked + div.yellow {
     background-color: rgb(117, 105, 50);
     border-color: rgb(158, 160, 53);
 }
 
+/* Green */
 .rd div.green {
-    background-color: rgb(62, 160, 53);
+    background-color: rgb(132, 185, 139);
 }
 .rd input[type="radio"]:checked + div.green {
     background-color: rgb(46, 107, 40);
     border-color: rgb(62, 160, 53);
 }
 
+/* Blue */
 .rd div.blue {
-    background-color: rgb(53, 130, 160);
+    background-color: rgb(132, 170, 187);
 }
 .rd input[type="radio"]:checked + div.blue {
     background-color: rgb(23, 88, 114);

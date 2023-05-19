@@ -22,9 +22,9 @@
 
 /* UNCHECKED =========================================================================================================  */
 .unchecked li {
-    color: rgb(148, 64, 64);
-    background-color: rgb(250, 223, 215);
-    border-bottom: 3px solid rgb(158, 143, 138);
+    color: rgb(129, 53, 53);
+    background-color: rgb(255, 208, 208);
+    border-bottom: 3px solid rgb(182, 130, 130);
     display: flex;
     padding: 0;
 }
@@ -46,7 +46,7 @@
     margin: 0;
     padding: 13px 13px;
     font-size: 25px;
-    background-color: rgb(209, 174, 161);
+    background-color: rgb(197, 133, 133);
     color: rgb(97, 41, 41);
 }
 
@@ -61,15 +61,15 @@
 .checked li {
     display: flex;
     padding: 0;
-    background-color: rgb(211, 211, 211);
-    border-bottom: 3px solid rgb(100, 91, 88);
-    color: rgb(80, 35, 35);
+    color: rgb(129, 53, 53);
+    background-color: rgb(255, 208, 208);
+    border-bottom: 3px solid rgb(182, 130, 130);
 }
 
 .checked li.active, .checked li:active {
-    color: rgb(211, 211, 211);
-    background-color: rgb(83, 63, 63);
-    border-color: rgb(46, 30, 30);
+    color: rgb(250, 223, 215);
+    background-color: rgb(110, 60, 60);
+    border-color: rgb(70, 26, 26);
 }
 
 .checked li a {
@@ -84,14 +84,13 @@
     margin: 0;
     padding: 15px 15px;
     font-size: 25px;
-    color: rgb(117, 48, 48);
-    background-color: rgb(192, 180, 180);
-    font-style: bold;
+    background-color: rgb(197, 133, 133);
+    color: rgb(97, 41, 41);
 }
 
 .remove_mark.active, .remove_mark:active {
-    color: rgb(173, 58, 58);
-    background-color: rgb(59, 34, 34);;
+    color: rgb(255, 161, 161);
+    background-color: rgb(80, 0, 0);
 }
 
 /* a Tekstit kun listat ovat tyhjiä */

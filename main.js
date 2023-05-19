@@ -11,9 +11,9 @@ const app = initializeApp(appSettings)
 const database = getDatabase(app)
 
 // Locations in DB
-const shoppinglistCheckedInDB_PATH = "shoppingList/checked"  // "shoppingList-DEV/checked"
+const shoppinglistCheckedInDB_PATH = "shoppingList-DEV/checked"  // "shoppingList-DEV/checked"
 const shoppinglistCheckedInDB = ref(database, shoppinglistCheckedInDB_PATH)
-const shoppinglistUncheckedInDB_PATH = "shoppingList/unchecked"  // "shoppingList-DEV/checked"
+const shoppinglistUncheckedInDB_PATH = "shoppingList-DEV/unchecked"  // "shoppingList-DEV/checked"
 const shoppinglistUncheckedInDB = ref(database, shoppinglistUncheckedInDB_PATH)
 
 // const elems
@@ -79,14 +79,38 @@ onValue(shoppinglistUncheckedInDB, function(snapshot) {
     }
     let itemsArray = Object.entries(snapshot.val())
     itemsArray.reverse()
-    console.log("unchecked:")
-    console.log(itemsArray)
+    // console.log("unchecked:")
+    // console.log(itemsArray)
     shoppingListUncheckedElem.innerHTML = ""
+
+    let redArray = []
+    let orangeArray = []
+    let yellowArray = []
+    let greenArray = []
+    let blueArray = []
 
     for (let i = 0; i < itemsArray.length; i++) {
         let item = itemsArray[i]
+        let itemColor = item[1]["color"]
+        if (itemColor == "orange") {
+            orangeArray.push(item)
+        } else if (itemColor == "yellow") {
+            yellowArray.push(item)
+        } else if (itemColor == "green") {
+            greenArray.push(item)
+        } else if (itemColor == "blue") {
+            blueArray.push(item)
+        } else {
+            redArray.push(item)
+        }
+    }
+
+    let orderedArray = redArray.concat(orangeArray, yellowArray, greenArray, blueArray)
+    for (let e = 0; e < orderedArray.length; e++) {
+        let item = orderedArray[e]
         addNewItemToUncheckedShoppingList(item)
     }
+    
 })
 
 
@@ -101,14 +125,38 @@ onValue(shoppinglistCheckedInDB, function(snapshot) {
     let itemsArray = Object.entries(snapshot.val())
     itemsArray.reverse()
 
-    console.log("Checked:")
-    console.log(itemsArray)
+    // console.log("Checked:")
+    // console.log(itemsArray)
     shoppingListCheckedElem.innerHTML = ""
+
+    let redArray = []
+    let orangeArray = []
+    let yellowArray = []
+    let greenArray = []
+    let blueArray = []
 
     for (let i = 0; i < itemsArray.length; i++) {
         let item = itemsArray[i]
+        let itemColor = item[1]["color"]
+        if (itemColor == "orange") {
+            orangeArray.push(item)
+        } else if (itemColor == "yellow") {
+            yellowArray.push(item)
+        } else if (itemColor == "green") {
+            greenArray.push(item)
+        } else if (itemColor == "blue") {
+            blueArray.push(item)
+        } else {
+            redArray.push(item)
+        }
+    }
+
+    let orderedArray = redArray.concat(orangeArray, yellowArray, greenArray, blueArray)
+    for (let e = 0; e < orderedArray.length; e++) {
+        let item = orderedArray[e]
         addNewItemToCheckedShoppingList(item)
     }
+
 })
 
 
@@ -124,7 +172,6 @@ function addNewItemToUncheckedShoppingList(item) {
     let liElem = document.createElement("li")
     liElem.classList.add(`color-${itemColor}`)
     liElem.id = itemID
-    liElem.setAttribute = ("color", itemColor)
 
     // List item value
     let textElem = document.createElement("a")
@@ -258,7 +305,7 @@ function addNewItemToUncheckedShoppingList(item) {
         editValueInputElem.value = itemValue
         liElem.classList.add("active")
         dropdownContentElem.classList.remove("hidden")
-        console.log("editor open")
+        // console.log("editor open")
     })
 
     // Exit dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -267,7 +314,7 @@ function addNewItemToUncheckedShoppingList(item) {
         liElem.classList.remove("active")
     })
 
-    // Save dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // Save EDIT dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     saveValueBtnElem.addEventListener("click", function () {
         // item value
         let newValue = editValueInputElem.value
@@ -279,8 +326,7 @@ function addNewItemToUncheckedShoppingList(item) {
         else if (yellowRadioElem.checked) {newColor = "yellow"}
         else if (greenRadioElem.checked) {newColor = "green"}
         else if (blueRadioElem.checked) {newColor = "blue"}
-        else {console.log("ei oo väriä mukamas")}
-
+        
         let exactLocationOfItemInDB = ref(database, `${shoppinglistUncheckedInDB_PATH}/${itemID}`)
         if (newColor === null) {
             set(exactLocationOfItemInDB, {"value": newValue, "color": itemColor})
@@ -317,11 +363,13 @@ function addNewItemToCheckedShoppingList(item) {
     // Main li elem
     let newLiElem = document.createElement("li")
     newLiElem.id = itemID
+    newLiElem.classList.add(`color-${itemColor}`)
 
     // Remove button elem
     let newSpanRemoveElem = document.createElement("span")
     newSpanRemoveElem.textContent = "x"
     newSpanRemoveElem.classList.add("remove_mark")
+    newSpanRemoveElem.classList.add(`color-${itemColor}`)
 
     // Text value of item
     let newTextElem = document.createElement("a")

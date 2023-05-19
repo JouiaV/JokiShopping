@@ -1,9 +1,10 @@
 
 body {
+    scroll-behavior: smooth;
     user-select: none;
     font-family: monospace;
     color: rgb(223, 145, 145);
-    background-color: rgb(31, 22, 22);
+    background-color: rgb(29, 20, 20);
 }
 
 h1 {
@@ -50,13 +51,13 @@ img {
 
 footer {
     margin-top: 30px;
-    color:rgb(46, 44, 44);
+    color:rgb(59, 57, 57);
 }
 
 button {
     font-family: monospace;
     font-size: 20px;
-    margin: 4px 0;
+    margin: 3px 0;
     padding: 15px;
     border: 0;
     border-radius: 2vh;
@@ -75,7 +76,7 @@ input[type="text"] {
     font-family: monospace;
     font-size: 20px;
     text-align: center;
-    margin: 10px 0;
+    margin: 6px 0;
     padding: 15px;
     border: 0;
     background-color: rgb(255, 194, 194);
@@ -90,5 +91,8 @@ input[type="text"]:focus {
     border: 3px solid rgb(122, 31, 31);
 }
 
-
+.lista_otetut {
+    font-size: 21px;
+    text-shadow: 0 0 10px rgb(136, 88, 88);
+}
 

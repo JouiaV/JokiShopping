@@ -1,0 +1,196 @@
+
+/* UNCHECKED */
+
+
+/* ORANGE ======================================================================================== */
+.unchecked li.color-orange {
+    color: rgb(107, 69, 46);
+    background-color: rgb(252, 203, 157);
+    border-bottom: 3px solid rgb(182, 129, 104);
+}
+
+.unchecked li.active.color-orange, .unchecked li.color-orange:active {
+    color: rgb(250, 231, 215);
+    background-color: rgb(151, 102, 57);
+    border-color: rgb(99, 65, 37);
+}
+
+.check_mark.color-orange {
+    background-color: rgb(216, 164, 115);
+    color: rgb(97, 73, 41);
+}
+
+.check_mark.active.color-orange, .check_mark.color-orange:active {
+    background-color: rgb(80, 36, 0);
+    color: rgb(255, 211, 161);
+}
+
+
+/* YELLOW ======================================================================================== */
+.unchecked li.color-yellow {
+    color: rgb(105, 97, 47);
+    background-color: rgb(255, 252, 173);
+    border-bottom: 3px solid rgb(182, 182, 104);
+}
+
+.unchecked li.active.color-yellow, .unchecked li.color-yellow:active {
+    color: rgb(250, 249, 215);
+    background-color: rgb(142, 151, 57);
+    border-color: rgb(95, 99, 37);
+}
+
+.check_mark.color-yellow {
+    background-color: rgb(206, 207, 109);
+    color: rgb(107, 99, 31);
+}
+
+.check_mark.active.color-yellow, .check_mark.color-yellow:active {
+    background-color: rgb(80, 79, 0);
+    color: rgb(246, 255, 161);
+}
+
+/* GREEN ======================================================================================== */
+.unchecked li.color-green {
+    color: rgb(38, 95, 52);
+    background-color: rgb(215, 250, 221);
+    border-bottom: 3px solid rgb(138, 158, 142);
+}
+
+.unchecked li.active.color-green, .unchecked li.color-green:active {
+    color: rgb(215, 250, 221);
+    background-color: rgb(67, 117, 78);
+    border-color: rgb(26, 70, 36);
+}
+
+.check_mark.color-green {
+    background-color: rgb(161, 209, 167);
+    color: rgb(41, 97, 55);
+}
+
+.check_mark.active.color-green, .check_mark.color-green:active {
+    background-color: rgb(0, 80, 27);
+    color: rgb(161, 255, 184)
+}
+
+/* BLUE ======================================================================================== */
+.unchecked li.color-blue {
+    color: rgb(42, 57, 99);
+    background-color: rgb(215, 242, 250);
+    border-bottom: 3px solid rgb(138, 147, 158);
+}
+
+.unchecked li.active.color-blue, .unchecked li.color-blue:active {
+    color: rgb(215, 245, 250);
+    background-color: rgb(67, 93, 117);
+    border-color: rgb(26, 54, 70);
+}
+
+.check_mark.color-blue {
+    background-color: rgb(161, 195, 209);
+    color: rgb(41, 65, 97);
+}
+
+.check_mark.active.color-blue, .check_mark.color-blue:active {
+    background-color: rgb(0, 57, 80);
+    color: rgb(161, 228, 255);
+}
+
+/* ============================================================================================================== */
+
+
+/* CHECKED - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+/* ORANGE ======================================================================================== */
+.checked li.color-orange {
+    color: rgb(107, 69, 46);
+    background-color: rgb(252, 203, 157);
+    border-bottom: 3px solid rgb(182, 129, 104);
+}
+
+.checked li.active.color-orange, .checked li.color-orange:active {
+    color: rgb(250, 231, 215);
+    background-color: rgb(151, 102, 57);
+    border-color: rgb(99, 65, 37);
+}
+
+.remove_mark.color-orange {
+    background-color: rgb(216, 164, 115);
+    color: rgb(97, 73, 41);
+}
+
+.remove_mark.active.color-orange, .remove_mark.color-orange:active {
+    background-color: rgb(80, 36, 0);
+    color: rgb(255, 211, 161);
+}
+
+/* YELLOW ======================================================================================== */
+.checked li.color-yellow {
+    color: rgb(105, 97, 47);
+    background-color: rgb(255, 252, 173);
+    border-bottom: 3px solid rgb(182, 182, 104);
+}
+
+.checked li.active.color-yellow, .checked li.color-yellow:active {
+    color: rgb(250, 249, 215);
+    background-color: rgb(142, 151, 57);
+    border-color: rgb(95, 99, 37);
+}
+
+.remove_mark.color-yellow {
+    background-color: rgb(206, 207, 109);
+    color: rgb(112, 104, 30);
+}
+
+.remove_mark.active.color-yellow, .remove_mark.color-yellow:active {
+    background-color: rgb(80, 79, 0);
+    color: rgb(246, 255, 161);
+}
+
+/* GREEN ======================================================================================== */
+.checked li.color-green {
+    color: rgb(38, 95, 52);
+    background-color: rgb(215, 250, 221);
+    border-bottom: 3px solid rgb(138, 158, 142);
+}
+
+.checked li.active.color-green, .checked li.color-green:active {
+    color: rgb(215, 250, 221);
+    background-color: rgb(67, 117, 78);
+    border-color: rgb(26, 70, 36);
+}
+
+.remove_mark.color-green {
+    background-color: rgb(161, 209, 167);
+    color: rgb(41, 97, 55);
+}
+
+.remove_mark.active.color-green, .remove_mark.color-green:active {
+    background-color: rgb(0, 80, 27);
+    color: rgb(161, 255, 184)
+}
+
+/* BLUE ======================================================================================== */
+.checked li.color-blue {
+    color: rgb(42, 57, 99);
+    background-color: rgb(215, 242, 250);
+    border-bottom: 3px solid rgb(138, 147, 158);
+}
+
+.checked li.active.color-blue, .checked li.color-blue:active {
+    color: rgb(215, 245, 250);
+    background-color: rgb(67, 93, 117);
+    border-color: rgb(26, 54, 70);
+}
+
+.remove_mark.color-blue {
+    background-color: rgb(161, 195, 209);
+    color: rgb(41, 65, 97);
+}
+
+.remove_mark.active.color-blue, .remove_mark.color-blue:active {
+    background-color: rgb(0, 57, 80);
+    color: rgb(161, 228, 255);
+}
+
+
+
