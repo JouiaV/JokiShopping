@@ -11,9 +11,9 @@ const app = initializeApp(appSettings)
 const database = getDatabase(app)
 
 // Locations in DB
-const shoppinglistCheckedInDB_PATH = "shoppingList-DEV/checked"  // "shoppingList-DEV/checked"
+const shoppinglistCheckedInDB_PATH = "shoppingList/checked"  // "shoppingList-DEV/checked"
 const shoppinglistCheckedInDB = ref(database, shoppinglistCheckedInDB_PATH)
-const shoppinglistUncheckedInDB_PATH = "shoppingList-DEV/unchecked"  // "shoppingList-DEV/checked"
+const shoppinglistUncheckedInDB_PATH = "shoppingList/unchecked"  // "shoppingList-DEV/checked"
 const shoppinglistUncheckedInDB = ref(database, shoppinglistUncheckedInDB_PATH)
 
 // const elems
