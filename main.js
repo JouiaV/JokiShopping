@@ -300,21 +300,26 @@ function addNewItemToUncheckedShoppingList(item) {
         }, shoppingItemAnimationTime);
     })
     
-    // Dropdown editor triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // OPEN EDIT Dropdown editor triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     dropdownElem.addEventListener("click", function () {
         editValueInputElem.value = itemValue
         liElem.classList.add("active")
         dropdownContentElem.classList.remove("hidden")
-        // console.log("editor open")
+        
+        if (itemColor === "red") {redRadioElem.checked = true}
+        else if (itemColor === "orange") {orangeRadioElem.checked = true}
+        else if (itemColor === "yellow") {yellowRadioElem.checked = true}
+        else if (itemColor === "green") {greenRadioElem.checked = true}
+        else if (itemColor === "blue") {blueRadioElem.checked = true}
     })
 
-    // Exit dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // EXIT EDIT dropdown editor triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     exitEditBtn.addEventListener("click", function () {
         dropdownContentElem.classList.add("hidden")
         liElem.classList.remove("active")
     })
 
-    // Save EDIT dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // SAVE EDIT dropdown triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     saveValueBtnElem.addEventListener("click", function () {
         // item value
         let newValue = editValueInputElem.value
@@ -326,7 +331,7 @@ function addNewItemToUncheckedShoppingList(item) {
         else if (yellowRadioElem.checked) {newColor = "yellow"}
         else if (greenRadioElem.checked) {newColor = "green"}
         else if (blueRadioElem.checked) {newColor = "blue"}
-        
+
         let exactLocationOfItemInDB = ref(database, `${shoppinglistUncheckedInDB_PATH}/${itemID}`)
         if (newColor === null) {
             set(exactLocationOfItemInDB, {"value": newValue, "color": itemColor})
