@@ -171,7 +171,7 @@ function addNewItemToUncheckedShoppingList(item) {
     // Main li elem
     let liElem = document.createElement("li")
     liElem.classList.add(`color-${itemColor}`)
-    liElem.id = itemID
+    // liElem.id = itemID
 
     // List item value
     let textElem = document.createElement("a")
@@ -202,6 +202,7 @@ function addNewItemToUncheckedShoppingList(item) {
     // Dropdown colorpicker  
     let colorPickerDivElem = document.createElement("div")
     colorPickerDivElem.classList.add("color-picker")
+    // colorPickerDivElem.id = itemID
 
     // red
     let redLabelElem = document.createElement("label")
@@ -209,7 +210,7 @@ function addNewItemToUncheckedShoppingList(item) {
     let redRadioElem = document.createElement("input")
     redRadioElem.type = "radio"
     redRadioElem.name = "dp_color-picker"
-    redRadioElem.id = "dp_red"
+    redRadioElem.id = "dp_red" + itemID
     let redCircleElem = document.createElement("div")
     redCircleElem.classList.add("red")
     redLabelElem.appendChild(redRadioElem)
@@ -221,7 +222,7 @@ function addNewItemToUncheckedShoppingList(item) {
     let orangeRadioElem = document.createElement("input")
     orangeRadioElem.type = "radio"
     orangeRadioElem.name = "dp_color-picker"
-    orangeRadioElem.id = "dp_orange"
+    orangeRadioElem.id = "dp_orange" + itemID
     let orangeCircleElem = document.createElement("div")
     orangeCircleElem.classList.add("orange")
     orangeLabelElem.appendChild(orangeRadioElem)
@@ -233,7 +234,7 @@ function addNewItemToUncheckedShoppingList(item) {
     let yellowRadioElem = document.createElement("input")
     yellowRadioElem.type = "radio"
     yellowRadioElem.name = "dp_color-picker"
-    yellowRadioElem.id = "dp_yellow"
+    yellowRadioElem.id = "dp_yellow" + itemID
     let yellowCircleElem = document.createElement("div")
     yellowCircleElem.classList.add("yellow")
     yellowLabelElem.appendChild(yellowRadioElem)
@@ -245,7 +246,7 @@ function addNewItemToUncheckedShoppingList(item) {
     let greenRadioElem = document.createElement("input")
     greenRadioElem.type = "radio"
     greenRadioElem.name = "dp_color-picker"
-    greenRadioElem.id = "dp_green"
+    greenRadioElem.id = "dp_green" + itemID
     let greenCircleElem = document.createElement("div")
     greenCircleElem.classList.add("green")
     greenLabelElem.appendChild(greenRadioElem)
@@ -257,7 +258,7 @@ function addNewItemToUncheckedShoppingList(item) {
     let blueRadioElem = document.createElement("input")
     blueRadioElem.type = "radio"
     blueRadioElem.name = "dp_color-picker"
-    blueRadioElem.id = "dp_blue"
+    blueRadioElem.id = "dp_blue" + itemID
     let blueCircleElem = document.createElement("div")
     blueCircleElem.classList.add("blue")
     blueLabelElem.appendChild(blueRadioElem)
@@ -273,6 +274,7 @@ function addNewItemToUncheckedShoppingList(item) {
     // Dropdown input edit value elem
     let editValueInputElem = document.createElement("input")
     editValueInputElem.classList.add("editValueInput")
+    editValueInputElem.id = "editValueInput" + itemID
     editValueInputElem.type = "text"
     editValueInputElem.placeholder = "nimeä uudelleen..."
     editValueInputElem.value = itemValue
@@ -282,7 +284,7 @@ function addNewItemToUncheckedShoppingList(item) {
     saveValueBtnElem.classList.add("saveValueBtn")
     saveValueBtnElem.textContent = "Tallenna"
 
-    // Span exit button
+    // Span exit EDIT button
     let exitEditBtn = document.createElement("span")
     exitEditBtn.classList.add("exitEditBtn")
     exitEditBtn.textContent = "x"

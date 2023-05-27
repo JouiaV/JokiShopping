@@ -1,0 +1,34 @@
+
+.navbar {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+
+    color: rgb(255, 176, 176);
+    background-color: rgb(173, 53, 53);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    transition: bottom 0.3s ease;
+    text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+.navbar:active {
+    background-color: rgb(114, 36, 36);
+}
+
+img.navbar-icon {
+    height: 30px;
+    margin: 5px;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+}
+
+.navbar:active > img.navbar-icon {
+    opacity: 1;
+}
+
+
