@@ -1,19 +1,18 @@
 
 .navbar {
-    z-index: 1;
+    z-index: 5;
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 40px;
+    height: 50px;
     width: 100%;
     margin: 0;
 
-    color: rgb(255, 176, 176);
-    background-color: rgb(173, 53, 53);
-    box-shadow: 0 0 10px rgb(0, 0, 0);
-    transition: bottom 0.3s ease;
     text-align: center;
+    background-color: rgb(173, 53, 53);
+    box-shadow: 0 0 20px 0 rgb(39, 25, 25);
     transition: background-color 0.5s ease;
+    transition: bottom 0.3s ease;
 }
 
 .navbar:active {
@@ -22,7 +21,7 @@
 
 img.navbar-icon {
     height: 30px;
-    margin: 5px;
+    margin: 10px;
     opacity: 0.4;
     transition: opacity 0.5s ease;
 }
@@ -31,4 +30,36 @@ img.navbar-icon {
     opacity: 1;
 }
 
+.navbar-content {
+    z-index: 3;
+    position: fixed;
+    bottom: -210px;
+    left: 0;
+    width: 100%;
+    margin: 0;
 
+    text-align: center;
+    background-color: rgb(85, 16, 16);
+    box-shadow: 0 0 20px rgb(19, 1, 1);
+    transition: bottom 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-option {
+    font-size: 20px;
+    color: rgb(255, 219, 219);
+    text-decoration: none;
+    background-color: rgb(173, 53, 53);
+    padding-block: 20px;
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+.navbar-option:active {
+    background-color: rgb(39, 11, 11);
+}
+
+.navbar-option:focus {
+    background-color: rgb(39, 11, 11);
+}

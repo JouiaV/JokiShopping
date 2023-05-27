@@ -1,6 +1,9 @@
 
-body {
+* {
     scroll-behavior: smooth;
+}
+
+body {
     user-select: none;
     font-family: monospace;
     color: rgb(223, 145, 145);

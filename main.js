@@ -188,7 +188,9 @@ function addNewItemToUncheckedShoppingList(item) {
     dropdownElem.classList.add("dropdown")
 
     // Dropdown content
-    let dropdownContentElem = document.createElement("div")
+    let dropdownContentElem = document.createElement("form")
+    function handleForm(event) { event.preventDefault(); } 
+    dropdownContentElem.addEventListener('submit', handleForm);
     dropdownContentElem.classList.add("dropdown-content")
     dropdownContentElem.classList.add(itemID)
     dropdownContentElem.classList.add("hidden")
@@ -200,15 +202,15 @@ function addNewItemToUncheckedShoppingList(item) {
     muokaaTextElem.textContent = "Muokkaa: " + itemValue
 
     // Dropdown colorpicker  
-    let colorPickerDivElem = document.createElement("div")
-    colorPickerDivElem.classList.add("color-picker")
-    // colorPickerDivElem.id = itemID
+    let colorPickerElem = document.createElement("div")
+    colorPickerElem.classList.add("color-picker-form")
 
     // red
     let redLabelElem = document.createElement("label")
     redLabelElem.classList.add("rd")
     let redRadioElem = document.createElement("input")
     redRadioElem.type = "radio"
+    redRadioElem.autocomplete = "off"
     redRadioElem.name = "dp_color-picker"
     redRadioElem.id = "dp_red" + itemID
     let redCircleElem = document.createElement("div")
@@ -221,6 +223,7 @@ function addNewItemToUncheckedShoppingList(item) {
     orangeLabelElem.classList.add("rd")
     let orangeRadioElem = document.createElement("input")
     orangeRadioElem.type = "radio"
+    orangeRadioElem.autocomplete = "off"
     orangeRadioElem.name = "dp_color-picker"
     orangeRadioElem.id = "dp_orange" + itemID
     let orangeCircleElem = document.createElement("div")
@@ -233,6 +236,7 @@ function addNewItemToUncheckedShoppingList(item) {
     yellowLabelElem.classList.add("rd")
     let yellowRadioElem = document.createElement("input")
     yellowRadioElem.type = "radio"
+    yellowRadioElem.autocomplete = "off"
     yellowRadioElem.name = "dp_color-picker"
     yellowRadioElem.id = "dp_yellow" + itemID
     let yellowCircleElem = document.createElement("div")
@@ -245,6 +249,7 @@ function addNewItemToUncheckedShoppingList(item) {
     greenLabelElem.classList.add("rd")
     let greenRadioElem = document.createElement("input")
     greenRadioElem.type = "radio"
+    greenRadioElem.autocomplete = "off"
     greenRadioElem.name = "dp_color-picker"
     greenRadioElem.id = "dp_green" + itemID
     let greenCircleElem = document.createElement("div")
@@ -257,6 +262,7 @@ function addNewItemToUncheckedShoppingList(item) {
     blueLabelElem.classList.add("rd")
     let blueRadioElem = document.createElement("input")
     blueRadioElem.type = "radio"
+    blueRadioElem.autocomplete = "off"
     blueRadioElem.name = "dp_color-picker"
     blueRadioElem.id = "dp_blue" + itemID
     let blueCircleElem = document.createElement("div")
@@ -265,16 +271,17 @@ function addNewItemToUncheckedShoppingList(item) {
     blueLabelElem.appendChild(blueCircleElem)
     
     // Append color options
-    colorPickerDivElem.appendChild(redLabelElem)
-    colorPickerDivElem.appendChild(orangeLabelElem)
-    colorPickerDivElem.appendChild(yellowLabelElem)
-    colorPickerDivElem.appendChild(greenLabelElem)
-    colorPickerDivElem.appendChild(blueLabelElem)
+    colorPickerElem.appendChild(redLabelElem)
+    colorPickerElem.appendChild(orangeLabelElem)
+    colorPickerElem.appendChild(yellowLabelElem)
+    colorPickerElem.appendChild(greenLabelElem)
+    colorPickerElem.appendChild(blueLabelElem)
 
     // Dropdown input edit value elem
     let editValueInputElem = document.createElement("input")
     editValueInputElem.classList.add("editValueInput")
-    editValueInputElem.id = "editValueInput" + itemID
+    editValueInputElem.id = "editValueInput" + itemID // autocomplete="off"
+    editValueInputElem.autocomplete = "off"
     editValueInputElem.type = "text"
     editValueInputElem.placeholder = "nimeä uudelleen..."
     editValueInputElem.value = itemValue
@@ -348,7 +355,7 @@ function addNewItemToUncheckedShoppingList(item) {
     // Adding the element to ul main list
     dropdownContentElem.appendChild(exitEditBtn)
     dropdownContentElem.appendChild(muokaaTextElem)
-    dropdownContentElem.appendChild(colorPickerDivElem)
+    dropdownContentElem.appendChild(colorPickerElem)
     dropdownContentElem.appendChild(editValueInputElem)
     dropdownContentElem.appendChild(saveValueBtnElem)
     dropDownListElem.appendChild(dropdownContentElem)

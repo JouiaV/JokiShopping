@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="css/navbar.css">
     <script type="module" src="main.js"></script>
     <script type="module" src="navbar.js"></script>
-
     <title>JokiShopList</title>
 </head>
 
@@ -25,6 +24,11 @@
 
     <div class="navbar" id="navbar">
         <img src="open_navbar_icon.png" alt="Avaa valikko" class="navbar-icon" id="navbar_open_icon">
+    </div>
+    <div class="navbar-content" id="navbar_content">
+        <a href="" class="navbar-option">Tee uusi lista</a>
+        <a href="" class="navbar-option">Listani</a>
+        <a href="#input-field" class="navbar-option">Lisää ruoka</a>
     </div>
 
     <div class="container">
@@ -36,29 +40,31 @@
         <h3>Valitse väri:</h3>
         
         <div class="color-picker main">
-            <label class="rd">
-                <input type="radio" name="color-picker" id="red" checked>
-                <div class="red"></div>
-            </label>
-            <label class="rd">
-                <input type="radio" name="color-picker" id="orange">
-                <div class="orange"></div>
-            </label>
-            <label class="rd">
-                <input type="radio" name="color-picker" id="yellow">
-                <div class="yellow"></div>
-            </label>
-            <label class="rd">
-                <input type="radio" name="color-picker" id="green">
-                <div class="green"></div>
-            </label>
-            <label class="rd">
-                <input type="radio" name="color-picker" id="blue">
-                <div class="blue"></div>
-            </label>
+            <form class="color-picker-form">
+                <label class="rd">
+                    <input type="radio" name="color-picker" id="red" checked>
+                    <div class="red"></div>
+                </label>
+                <label class="rd">
+                    <input type="radio" name="color-picker" id="orange">
+                    <div class="orange"></div>
+                </label>
+                <label class="rd">
+                    <input type="radio" name="color-picker" id="yellow">
+                    <div class="yellow"></div>
+                </label>
+                <label class="rd">
+                    <input type="radio" name="color-picker" id="green">
+                    <div class="green"></div>
+                </label>
+                <label class="rd">
+                    <input type="radio" name="color-picker" id="blue">
+                    <div class="blue"></div>
+                </label>
+            </form>
         </div>
 
-        <input type="text" id="input-field" placeholder="kirjoita ruoka">
+        <input type="text" id="input-field" placeholder="kirjoita ruoka" autocomplete="off">
         <button id="add-button" class="add-button">Lisää</button>
 
         <h2 class="lista_otetut">Lista:</h2>
