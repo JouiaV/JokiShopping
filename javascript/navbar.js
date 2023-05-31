@@ -5,6 +5,7 @@ var prevScrollpos = window.pageYOffset;
 var isNavbarOpen = false
 const navbarContentElem = document.getElementById("navbar_content")
 
+const navbarBackdropElem = document.getElementById("navbar-backdrop")
 
 // SHOW NAVABR ON BOTTOM WHEN SCROLL UP
 
@@ -24,6 +25,12 @@ window.onscroll = function() {
 
 // NAVBAR CONTENT
 
+navbarBackdropElem.addEventListener("click", () => {
+    if (isNavbarOpen) {
+        hide_navbar_content()
+    }
+})
+
 navbarElem.addEventListener("click", () => {
     if (isNavbarOpen) {
         hide_navbar_content()
@@ -36,11 +43,17 @@ navbarElem.addEventListener("click", () => {
 function hide_navbar_content() {
     navbarContentElem.style.bottom = "-210px"
     isNavbarOpen = false
+
+    navbarBackdropElem.style.width = "0"
+    navbarBackdropElem.style.height = "0"
 }
 
 function show_navbar_content() {
     navbarContentElem.style.bottom = "50px"
     isNavbarOpen = true
+
+    navbarBackdropElem.style.width = "100%"
+    navbarBackdropElem.style.height = "100%"
 }
 
 

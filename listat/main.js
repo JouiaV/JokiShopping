@@ -203,7 +203,7 @@ function addNewItemToUncheckedShoppingList(item) {
 
     // Dropdown colorpicker  
     let colorPickerElem = document.createElement("div")
-    colorPickerElem.classList.add("color-picker-form")
+    colorPickerElem.classList.add("color-picker")
 
     // red
     let redLabelElem = document.createElement("label")

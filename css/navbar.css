@@ -63,3 +63,12 @@ img.navbar-icon {
 .navbar-option:focus {
     background-color: rgb(39, 11, 11);
 }
+
+.navbar-backdrop {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}

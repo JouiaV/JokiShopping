@@ -9,79 +9,35 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/listItem.css">
-    <link rel="stylesheet" href="css/listItem_colors.css">
-    <link rel="stylesheet" href="css/popup_edit.css">
-    <link rel="stylesheet" href="css/color-picker.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <script type="module" src="main.js"></script>
-    <script type="module" src="navbar.js"></script>
+    <script type="module" src="javascript/main.js"></script>
+    <script type="module" src="javascript/navbar.js"></script>
     <title>JokiShopList</title>
 </head>
 
 <body>
 
     <div class="navbar" id="navbar">
-        <img src="open_navbar_icon.png" alt="Avaa valikko" class="navbar-icon" id="navbar_open_icon">
+        <img src="images/open_navbar_icon.png" alt="Avaa valikko" class="navbar-icon" id="navbar_open_icon">
     </div>
     <div class="navbar-content" id="navbar_content">
-        <a href="" class="navbar-option">Tee uusi lista</a>
-        <a href="" class="navbar-option">Listani</a>
-        <a href="#input-field" class="navbar-option">Lisää ruoka</a>
+        <a href="create_lista/lista_creation.html" class="navbar-option">Tee uusi lista</a>
     </div>
+    <div class="navbar-backdrop" id="navbar-backdrop"></div>
 
     <div class="container">
 
         <h1>JokiShopList</h1>
-        <h3 class="by_text">MADE BY: JossiTheJokirapuProductions</h3>
-        <img src="JokiShopList_LOGO.png" alt="JokiShopListLogo" class="main-logo">
+        <h3 class="by_text">MADE BY:<br/>JossiTheJokirapuProductions</h3>
+        <img src="images/JokiShopList_LOGO.png" alt="JokiShopListLogo" class="main-logo">
         
-        <h3>Valitse väri:</h3>
-        
-        <div class="color-picker main">
-            <form class="color-picker-form">
-                <label class="rd">
-                    <input type="radio" name="color-picker" id="red" checked>
-                    <div class="red"></div>
-                </label>
-                <label class="rd">
-                    <input type="radio" name="color-picker" id="orange">
-                    <div class="orange"></div>
-                </label>
-                <label class="rd">
-                    <input type="radio" name="color-picker" id="yellow">
-                    <div class="yellow"></div>
-                </label>
-                <label class="rd">
-                    <input type="radio" name="color-picker" id="green">
-                    <div class="green"></div>
-                </label>
-                <label class="rd">
-                    <input type="radio" name="color-picker" id="blue">
-                    <div class="blue"></div>
-                </label>
-            </form>
+        <h2>Listasi:</h2>
+        <div class="lista-link">
+            <a class="lista-text">Jea listan nimi</a>
+            <a href="listat/lista.html">Lista jeeeeea</a>
         </div>
-
-        <input type="text" id="input-field" placeholder="kirjoita ruoka" autocomplete="off">
-        <button id="add-button" class="add-button">Lisää</button>
-
-        <h2 class="lista_otetut">Lista:</h2>
-
-        <ul id="shopping-list-unchecked" class="shopping-list unchecked">
-            <a>Odotetaan yhteyttä dataan...</a>
-        </ul>
-        
-        <h2 class="lista_otetut">Otetut:</h2>
-
-        <ul id="shopping-list-checked" class="shopping-list checked">
-            <a>Odotetaan yhteyttä dataan...</a>
-        </ul>  
-
-        <ul class="drop-down-list" id="drop-down-list">
-        </ul>
-
+        <a href="create_lista/lista_creation.html">Tee uss lista</a>
         <footer>
             <p>Det här är <b>JossiJokirapuProductions</b> website, tack!</p>
         </footer>

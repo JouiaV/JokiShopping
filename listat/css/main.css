@@ -1,0 +1,18 @@
+
+
+h1.listan-nimi {
+    margin-inline: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+    color: rgb(240, 113, 113);
+}
+
+h3.valitse-vari {
+    margin-inline: 0;
+    margin-top: 10px;
+}
+
+.lista_otetut {
+    font-size: 24px;
+    text-shadow: 0 0 10px rgb(136, 88, 88);
+}

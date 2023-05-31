@@ -1,19 +1,17 @@
 
-/* .color-picker {
+.color-picker {
     overflow: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 0;
     margin-bottom: 4px;
-} */
+}
 
-.color-picker-form {
-    overflow: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0;
+.color-picker.main .rd div {
+    margin-inline: 4px;
+    height: 45px;
+    width: 45px;
     margin-bottom: 4px;
 }
 
