@@ -10,10 +10,13 @@ const appSettings = {
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
 
+const listaKoodi = localStorage.getItem("current-lista")
+const listaNimi = localStorage.getItem("current-lista-nimi")
+
 // Locations in DB
-const shoppinglistCheckedInDB_PATH = "shoppingList/checked"  // "shoppingList-DEV/checked"
+const shoppinglistCheckedInDB_PATH = `lists/${listaKoodi}/checked` 
 const shoppinglistCheckedInDB = ref(database, shoppinglistCheckedInDB_PATH)
-const shoppinglistUncheckedInDB_PATH = "shoppingList/unchecked"  // "shoppingList-DEV/checked"
+const shoppinglistUncheckedInDB_PATH = `lists/${listaKoodi}/unchecked`  
 const shoppinglistUncheckedInDB = ref(database, shoppinglistUncheckedInDB_PATH)
 
 // const elems
@@ -22,6 +25,8 @@ const addButtonElem = document.querySelector("#add-button")
 const shoppingListUncheckedElem = document.querySelector("#shopping-list-unchecked")
 const shoppingListCheckedElem = document.querySelector("#shopping-list-checked")
 const dropDownListElem = document.querySelector("#drop-down-list")
+const listNameElem = document.querySelector("#listan-nimi")
+listNameElem.textContent = listaNimi
 
 // color selector
 const redRdElem = document.querySelector("#red")
@@ -194,6 +199,11 @@ function addNewItemToUncheckedShoppingList(item) {
     dropdownContentElem.classList.add("dropdown-content")
     dropdownContentElem.classList.add(itemID)
     dropdownContentElem.classList.add("hidden")
+
+    // Dropdown backdrop
+    let backdropElem = document.createElement("div")
+    backdropElem.classList.add("dropdown-backdrop")
+    backdropElem.classList.add("hidden")
     
     // EDIT BOX CONTENT < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < <
     // Muokkaa text
@@ -313,6 +323,7 @@ function addNewItemToUncheckedShoppingList(item) {
     dropdownElem.addEventListener("click", function () {
         editValueInputElem.value = itemValue
         liElem.classList.add("active")
+        backdropElem.classList.remove("hidden")
         dropdownContentElem.classList.remove("hidden")
         
         if (itemColor === "red") {redRadioElem.checked = true}
@@ -325,6 +336,12 @@ function addNewItemToUncheckedShoppingList(item) {
     // EXIT EDIT dropdown editor triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     exitEditBtn.addEventListener("click", function () {
         dropdownContentElem.classList.add("hidden")
+        backdropElem.classList.add("hidden")
+        liElem.classList.remove("active")
+    })
+    backdropElem.addEventListener("click", function () {
+        dropdownContentElem.classList.add("hidden")
+        backdropElem.classList.add("hidden")
         liElem.classList.remove("active")
     })
 
@@ -349,6 +366,7 @@ function addNewItemToUncheckedShoppingList(item) {
             set(exactLocationOfItemInDB, {"value": newValue, "color": newColor})
         }
         dropdownContentElem.classList.add("hidden")
+        backdropElem.classList.add("hidden")
         liElem.classList.remove("active")
     })
 
@@ -359,6 +377,7 @@ function addNewItemToUncheckedShoppingList(item) {
     dropdownContentElem.appendChild(editValueInputElem)
     dropdownContentElem.appendChild(saveValueBtnElem)
     dropDownListElem.appendChild(dropdownContentElem)
+    dropDownListElem.appendChild(backdropElem)
     liElem.appendChild(checkMarkElem)
     dropdownElem.appendChild(textElem)
     liElem.appendChild(dropdownElem)

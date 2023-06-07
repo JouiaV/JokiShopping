@@ -26,9 +26,21 @@
     
     <div class="container">
         <h1>Tee oma lista</h1>
-        <label>Kirjoita JokiListan nimi:</label>
-        <input type="text" class="lista_nimi" placeholder="Kirjoita nimi">
-        <button class="createButton" id="createButton">Tee uusi lista</button>
+        <label for="listan_nimi_input">Listan nimi:</label>
+        <input type="text" class="lista_nimi" id="listan_nimi_input" placeholder="Kirjoita nimi">
+        <br>
+
+        <label for="listan_koodi_input">Liittymis koodi:</label>
+        <input type="text" class="lista_nimi" id="listan_koodi_input" placeholder="XXXXX">
+        <p class="selitys">Tämä on keksimäsi oma koodi, jolla muut voivat liittyä listaasi.</p>
+        <p class="selitys">KOODIN ON OLTAVA 5 MERKKIÄ PITKÄ</p>
+
+        <p class="error_msg" id="error_msg"></p>
+        <button class="createButton" id="createButton">Luo lista</button>
+
+        <footer>
+            <p>Det här är <b>JossiJokirapuProductions</b> website, tack!</p>
+        </footer>
 
     </div>
 </body>

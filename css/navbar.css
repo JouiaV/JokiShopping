@@ -33,7 +33,7 @@ img.navbar-icon {
 .navbar-content {
     z-index: 3;
     position: fixed;
-    bottom: -210px;
+    bottom: -1000px;
     left: 0;
     width: 100%;
     margin: 0;

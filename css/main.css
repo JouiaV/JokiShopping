@@ -1,3 +1,36 @@
 
+.listasi-text {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
 
+.lista {
+    padding-block: 18px;
+    margin-block: 8px;
+    overflow: auto;
+    border-radius: 10px;
+    font-size: 22px;
+    background-color: rgb(153, 61, 61);
+    color:rgb(248, 226, 226);
+    border-bottom: 5px solid rgb(94, 34, 34);
+}
 
+.liitylistaan-text {
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+input[type="text"].liitylistaan_input {
+    font-size: 22px;
+}
+
+.liityButton {
+    font-size: 22px;
+}
+
+.error-msg {
+    color: rgb(209, 13, 13);
+    font-size: 20px;
+}

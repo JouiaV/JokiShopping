@@ -1,6 +1,17 @@
 
 label {
     font-size: 25px;
+    margin-bottom: 3px;
+}
+
+.createButton {
+    margin-top: 10px;
+}
+
+.selitys {
+    margin-top: 3px;
+    font-size: 18px;
+    color: rgb(197, 75, 75);
 }
 
 

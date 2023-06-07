@@ -11,6 +11,7 @@
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/main.css">
     <script type="module" src="javascript/main.js"></script>
     <script type="module" src="javascript/navbar.js"></script>
     <title>JokiShopList</title>
@@ -22,7 +23,9 @@
         <img src="images/open_navbar_icon.png" alt="Avaa valikko" class="navbar-icon" id="navbar_open_icon">
     </div>
     <div class="navbar-content" id="navbar_content">
-        <a href="create_lista/lista_creation.html" class="navbar-option">Tee uusi lista</a>
+        <a href="#listani-lista" class="navbar-option">Listani</a>
+        <a href="#listan_koodi_input" class="navbar-option">Liity listaan</a>
+        <a href="create_lista/lista_creation.html" class="navbar-option">Luo uusi lista</a>
     </div>
     <div class="navbar-backdrop" id="navbar-backdrop"></div>
 
@@ -32,12 +35,16 @@
         <h3 class="by_text">MADE BY:<br/>JossiTheJokirapuProductions</h3>
         <img src="images/JokiShopList_LOGO.png" alt="JokiShopListLogo" class="main-logo">
         
-        <h2>Listasi:</h2>
-        <div class="lista-link">
-            <a class="lista-text">Jea listan nimi</a>
+        <h2 class="listasi-text">Listasi:</h2>
+        <div class="listani-lista" id="listani-lista">
             <a href="listat/lista.html">Lista jeeeeea</a>
         </div>
-        <a href="create_lista/lista_creation.html">Tee uss lista</a>
+
+        <h2 class="liitylistaan-text">Liity listaan koodilla:</h2>
+        <input type="text" class="liitylistaan_input" id="listan_koodi_input" placeholder="XXXXX">
+        <button class="liityButton" id="liityButton">liity</button>
+        <p class="error-msg" id="error-msg"></p>
+        
         <footer>
             <p>Det här är <b>JossiJokirapuProductions</b> website, tack!</p>
         </footer>

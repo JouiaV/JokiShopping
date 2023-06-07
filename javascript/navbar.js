@@ -1,11 +1,14 @@
 
 const navbarElem = document.getElementById("navbar")
-var prevScrollpos = window.pageYOffset;
-
-var isNavbarOpen = false
 const navbarContentElem = document.getElementById("navbar_content")
-
 const navbarBackdropElem = document.getElementById("navbar-backdrop")
+
+var prevScrollpos = window.pageYOffset;
+var isNavbarOpen = false
+
+const navbarContentElemHeight = navbarContentElem.offsetHeight;
+navbarContentElem.style.bottom = `-${navbarContentElemHeight}px`
+
 
 // SHOW NAVABR ON BOTTOM WHEN SCROLL UP
 
@@ -41,7 +44,7 @@ navbarElem.addEventListener("click", () => {
 })
 
 function hide_navbar_content() {
-    navbarContentElem.style.bottom = "-210px"
+    navbarContentElem.style.bottom = `-${navbarContentElemHeight}px`
     isNavbarOpen = false
 
     navbarBackdropElem.style.width = "0"
