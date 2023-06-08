@@ -4,6 +4,7 @@
 }
 
 body {
+    margin: 0;
     user-select: none;
     font-family: monospace;
     color: rgb(223, 145, 145);
