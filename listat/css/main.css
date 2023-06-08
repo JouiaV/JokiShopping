@@ -25,6 +25,7 @@ input[type="text"].input-field {
 .koodi-text {
     margin: 0;
     margin-top: 30px;
+    margin-bottom: 10px;
     color: rgb(110, 56, 56);
     font-weight: 100;
     font-size: 18px;
