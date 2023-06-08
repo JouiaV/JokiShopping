@@ -30,6 +30,8 @@ const dropDownListElem = document.querySelector("#drop-down-list")
 const listNameElem = document.querySelector("#listan-nimi")
 listNameElem.textContent = listaNimi
 const poistuListastaElem = document.querySelector("#poistuListasta")
+const listaKoodiElem = document.querySelector("#koodi-text")
+listaKoodiElem.textContent = `(KOODI: ${listaKoodi})`
 
 // color selector
 const redRdElem = document.querySelector("#red")
