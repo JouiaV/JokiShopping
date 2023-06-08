@@ -27,8 +27,9 @@
         <img src="../images/open_navbar_icon.png" alt="Avaa valikko" class="navbar-icon" id="navbar_open_icon">
     </div>
     <div class="navbar-content" id="navbar_content">
-        <a href="../index.html#listan_koodi_input" class="navbar-option">Liity listaan</a>
+        <a class="navbar-option" id="poistuListasta">Poistu tästä listasta</a>
         <a href="../create_lista/lista_creation.html" class="navbar-option">Luo uusi lista</a>
+        <a href="../index.html#listan_koodi_input" class="navbar-option">Liity listaan</a>
         <a href="../index.html" class="navbar-option">Listani</a>
         <a href="#input-field" class="navbar-option">Lisää ruoka</a>
     </div>
@@ -39,6 +40,8 @@
         <h1>JokiShopList</h1>
         <h3 class="by_text">MADE BY:<br/>JossiTheJokirapuProductions</h3>
         <img src="../images/JokiShopList_LOGO.png" alt="JokiShopListLogo" class="main-logo">
+
+        <!-- <button class="poistuListasta" id="poistuListasta">Poistu tästä listasta</button> -->
 
         <h1 class="listan-nimi" id="listan-nimi">Listan nimi</h1>
         <h3 class="valitse-vari">Valitse väri:</h3>
@@ -66,7 +69,14 @@
                 </label>
         </div>
 
-        <input type="text" id="input-field" placeholder="kirjoita ruoka" autocomplete="off">
+        <input type="text" id="input-field" placeholder="kirjoita ruoka" list="input-field-options">
+        <datalist id="input-field-options">
+            <option value="salaatti">salaatti</option>
+            <option value="tomaatti">tomaatti</option>
+            <option value="kurkku">kurkku</option>
+            <option value="juustoa">juustoa</option>
+            <option value="leipää">leipää</option>
+        </datalist>
         <button id="add-button" class="add-button">Lisää</button>
 
         <h2 class="lista_otetut">Lista:</h2>
@@ -87,8 +97,8 @@
 
     </div>
 
-    <ul class="drop-down-list" id="drop-down-list">
-    </ul>
+    <ul class="drop-down-list" id="drop-down-list"></ul>
+
 </body> 
 
 </html>

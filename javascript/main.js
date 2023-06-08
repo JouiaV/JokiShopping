@@ -1,8 +1,3 @@
-// add_lista_to_listani("testi nimi jea", "koodi")
-// add_lista_to_listani("Tosi pitkä nimi mutta erikseen testissä tänään jea lets mennään", "letsm")
-// add_lista_to_listani("Pitkänimimutyhteenkatottaanmittapaahtuusaakyllänähdämitä", "mitä0")
-// add_lista_to_listani("Tavallinen ruokalista", "00001")
-
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
@@ -21,8 +16,10 @@ const listaniElem = document.getElementById("listani-lista")
 const liityInputElem = document.getElementById("listan_koodi_input")
 const liityButtonElem = document.getElementById("liityButton")
 const errorMsgElem = document.getElementById("error-msg")
+const luoButtonElem = document.getElementById("luoButton")
 
 liityButtonElem.addEventListener("click", liity_listaan)
+luoButtonElem.addEventListener("click", open_luoLista)
 
 var listani
 update_listani()
@@ -101,3 +98,8 @@ async function get_lista(koodi) {
 
     return data
 }
+
+function open_luoLista() {
+    window.location.href = './create_lista/lista_creation.html';
+}
+

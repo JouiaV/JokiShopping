@@ -1,4 +1,6 @@
 
+import { remove_lista_from_listani } from "../javascript/localStorage_listani.js"
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"
 import { getDatabase, ref, push, set, onValue, remove } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
@@ -27,6 +29,7 @@ const shoppingListCheckedElem = document.querySelector("#shopping-list-checked")
 const dropDownListElem = document.querySelector("#drop-down-list")
 const listNameElem = document.querySelector("#listan-nimi")
 listNameElem.textContent = listaNimi
+const poistuListastaElem = document.querySelector("#poistuListasta")
 
 // color selector
 const redRdElem = document.querySelector("#red")
@@ -38,6 +41,7 @@ const blueRdElem = document.querySelector("#blue")
 const shoppingItemAnimationTime = 150  // milliseconds
 
 addButtonElem.addEventListener("click", add_clicked)
+poistuListastaElem.addEventListener("click", poistuListasta)
 
 // Add item triggered
 function add_clicked() {
@@ -82,6 +86,7 @@ onValue(shoppinglistUncheckedInDB, function(snapshot) {
         shoppingListUncheckedElem.innerHTML = "<a class='ei_ole_unchecked'>Lista on tyhjä...</a>"
         return
     }
+    dropDownListElem.innerHTML = ""
     let itemsArray = Object.entries(snapshot.val())
     itemsArray.reverse()
     // console.log("unchecked:")
@@ -433,4 +438,12 @@ function addNewItemToCheckedShoppingList(item) {
     newLiElem.appendChild(newTextElem)
     shoppingListCheckedElem.appendChild(newLiElem)
 }
+
+function poistuListasta() {
+    console.log("poistu")
+    remove_lista_from_listani(listaKoodi)
+    window.location.href = '../index.html';
+}
+
+
 

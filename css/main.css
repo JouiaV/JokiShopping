@@ -30,7 +30,19 @@ input[type="text"].liitylistaan_input {
     font-size: 22px;
 }
 
+.lista:active {
+    background-color: rgb(88, 38, 38);
+    border-bottom: 5px solid rgb(43, 16, 16);
+}
+
 .error-msg {
     color: rgb(209, 13, 13);
     font-size: 20px;
 }
+
+.luo-text {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

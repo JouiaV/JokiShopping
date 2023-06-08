@@ -26,5 +26,24 @@ export function add_lista_to_listani(nimi, koodi) {
 
 }
 
+export function remove_lista_from_listani(koodi) {
+    let listani_string = localStorage.getItem("listani")
 
+    if (listani_string === null) {return}
+
+    var listaniObj = JSON.parse(listani_string)
+    for (let i = 0; i < listaniObj.length; i++) {
+        let lista = listaniObj[i]
+        let listaKoodi = lista["code"]
+
+        if (listaKoodi === koodi) {
+            console.log("poistetaan")
+            console.log(listaKoodi)
+            console.log(lista["name"])
+            listaniObj.splice(i, 1)
+            break
+        }
+    }
+    localStorage.setItem("listani", JSON.stringify(listaniObj));
+}
 
