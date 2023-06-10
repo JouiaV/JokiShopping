@@ -31,7 +31,6 @@ function update_listani() {
     listaniElem.innerHTML = ""
 
     listani = get_listani()
-    console.log(listani)
 
     for (let i = 0; i < listani.length; i++) {
 
@@ -46,7 +45,6 @@ function update_listani() {
 
         // ON CLICK
         listaElem.addEventListener("click", function () {
-            console.log(koodi)
             localStorage.setItem("current-lista", koodi)
             localStorage.setItem("current-lista-nimi", nimi)
             window.location.href = './listat/lista.html';
@@ -63,7 +61,6 @@ function update_listani() {
 // LIITY LISTAAN - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 async function liity_listaan() {
     errorMsgElem.textContent = ""
-    console.log("Etsitään listaa")
     
     let koodi = liityInputElem.value
 
@@ -79,10 +76,7 @@ async function liity_listaan() {
     var data = await get_lista(koodi)
 
     if (data.exists()) {
-        console.log("liitytään listaan:")
         const val = data.val()
-        console.log(val)
-        console.log(val["settings"]["name"])
 
         add_lista_to_listani(val["settings"]["name"], koodi)
 

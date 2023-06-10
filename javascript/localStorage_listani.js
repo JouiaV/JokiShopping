@@ -37,9 +37,6 @@ export function remove_lista_from_listani(koodi) {
         let listaKoodi = lista["code"]
 
         if (listaKoodi === koodi) {
-            console.log("poistetaan")
-            console.log(listaKoodi)
-            console.log(lista["name"])
             listaniObj.splice(i, 1)
             break
         }

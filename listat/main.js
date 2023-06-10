@@ -84,15 +84,12 @@ function isInputValid(input) {
 // UNCHECKED value changed listener + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + ++ + + + + + + + + + + + + + + + + +
 onValue(shoppinglistUncheckedInDB, function(snapshot) {
     if (!snapshot.exists()) {
-        console.log("Ei ole mitään unchecked")
         shoppingListUncheckedElem.innerHTML = "<a class='ei_ole_unchecked'>Lista on tyhjä...</a>"
         return
     }
     dropDownListElem.innerHTML = ""
     let itemsArray = Object.entries(snapshot.val())
     itemsArray.reverse()
-    // console.log("unchecked:")
-    // console.log(itemsArray)
     shoppingListUncheckedElem.innerHTML = ""
 
     let redArray = []
@@ -129,7 +126,6 @@ onValue(shoppinglistUncheckedInDB, function(snapshot) {
 // CHECKED value changed listener - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 onValue(shoppinglistCheckedInDB, function(snapshot) {
     if (!snapshot.exists()) {
-        console.log("Ei ole mitään checked")
         shoppingListCheckedElem.innerHTML = "<a class='ei_ole_checked'>Ei ole otettuja...</a>"
         return
     }
@@ -137,8 +133,6 @@ onValue(shoppinglistCheckedInDB, function(snapshot) {
     let itemsArray = Object.entries(snapshot.val())
     itemsArray.reverse()
 
-    // console.log("Checked:")
-    // console.log(itemsArray)
     shoppingListCheckedElem.innerHTML = ""
 
     let redArray = []
@@ -442,7 +436,6 @@ function addNewItemToCheckedShoppingList(item) {
 }
 
 function poistuListasta() {
-    console.log("poistu")
     remove_lista_from_listani(listaKoodi)
     window.location.href = '../index.html';
 }
