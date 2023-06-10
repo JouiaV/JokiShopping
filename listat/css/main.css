@@ -14,11 +14,6 @@ h3.valitse-vari {
 
 input[type="text"].input-field {
     margin-bottom: 10px;
-    font-size: 22px;
-}
-
-.add-button {
-    font-size: 22px;
 }
 
 .lista_otetut {

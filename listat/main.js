@@ -212,6 +212,15 @@ function addNewItemToUncheckedShoppingList(item) {
     muokaaTextElem.classList.add("muokkaa-p")
     muokaaTextElem.textContent = "Muokkaa: " + itemValue
 
+    // Dropdown input edit value elem
+    let editValueInputElem = document.createElement("input")
+    editValueInputElem.classList.add("editValueInput")
+    editValueInputElem.id = "editValueInput" + itemID // autocomplete="off"
+    editValueInputElem.autocomplete = "off"
+    editValueInputElem.type = "text"
+    editValueInputElem.placeholder = "nimeä uudelleen..."
+    editValueInputElem.value = itemValue
+
     // Dropdown colorpicker  
     let colorPickerElem = document.createElement("div")
     colorPickerElem.classList.add("color-picker")
@@ -281,21 +290,19 @@ function addNewItemToUncheckedShoppingList(item) {
     blueLabelElem.appendChild(blueRadioElem)
     blueLabelElem.appendChild(blueCircleElem)
     
+    // create eventlisteners
+    add_eventListener(redRadioElem, editValueInputElem, "red")
+    add_eventListener(orangeRadioElem, editValueInputElem, "orange")
+    add_eventListener(yellowRadioElem, editValueInputElem, "yellow")
+    add_eventListener(greenRadioElem, editValueInputElem, "green")
+    add_eventListener(blueRadioElem, editValueInputElem, "blue")
+
     // Append color options
     colorPickerElem.appendChild(redLabelElem)
     colorPickerElem.appendChild(orangeLabelElem)
     colorPickerElem.appendChild(yellowLabelElem)
     colorPickerElem.appendChild(greenLabelElem)
     colorPickerElem.appendChild(blueLabelElem)
-
-    // Dropdown input edit value elem
-    let editValueInputElem = document.createElement("input")
-    editValueInputElem.classList.add("editValueInput")
-    editValueInputElem.id = "editValueInput" + itemID // autocomplete="off"
-    editValueInputElem.autocomplete = "off"
-    editValueInputElem.type = "text"
-    editValueInputElem.placeholder = "nimeä uudelleen..."
-    editValueInputElem.value = itemValue
 
     // Dropdown button save value elem
     let saveValueBtnElem = document.createElement("button")
@@ -326,12 +333,21 @@ function addNewItemToUncheckedShoppingList(item) {
         liElem.classList.add("active")
         backdropElem.classList.remove("hidden")
         dropdownContentElem.classList.remove("hidden")
-        
+        let c = "red"
         if (itemColor === "red") {redRadioElem.checked = true}
-        else if (itemColor === "orange") {orangeRadioElem.checked = true}
-        else if (itemColor === "yellow") {yellowRadioElem.checked = true}
-        else if (itemColor === "green") {greenRadioElem.checked = true}
-        else if (itemColor === "blue") {blueRadioElem.checked = true}
+        else if (itemColor === "orange") {orangeRadioElem.checked = true; c="orange"}
+        else if (itemColor === "yellow") {yellowRadioElem.checked = true; c="yellow"}
+        else if (itemColor === "green") {greenRadioElem.checked = true; c="green"}
+        else if (itemColor === "blue") {blueRadioElem.checked = true; c="blue"}
+
+        editValueInputElem.classList.remove("red")
+        editValueInputElem.classList.remove("orange")
+        editValueInputElem.classList.remove("yellow")
+        editValueInputElem.classList.remove("green")
+        editValueInputElem.classList.remove("blue")
+
+        editValueInputElem.classList.add(c)
+
     })
 
     // EXIT EDIT dropdown editor triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -435,10 +451,35 @@ function addNewItemToCheckedShoppingList(item) {
     shoppingListCheckedElem.appendChild(newLiElem)
 }
 
+// Poistu listasta
 function poistuListasta() {
     remove_lista_from_listani(listaKoodi)
     window.location.href = '../index.html';
 }
 
+const rdRedElem = document.getElementById("red")
+const rdOrangeElem = document.getElementById("orange")
+const rdYellowElem = document.getElementById("yellow")
+const rdGreenElem = document.getElementById("green")
+const rdBlueElem = document.getElementById("blue")
 
+add_eventListener(rdRedElem, inputFieldElem, "red")
+add_eventListener(rdOrangeElem, inputFieldElem, "orange")
+add_eventListener(rdYellowElem, inputFieldElem, "yellow")
+add_eventListener(rdGreenElem, inputFieldElem, "green")
+add_eventListener(rdBlueElem, inputFieldElem, "blue")
+
+function add_eventListener(rd, inputField, color) {
+    rd.addEventListener("click", function () {
+        console.log("No moi")
+        console.log(color)
+        inputField.classList.remove("red")
+        inputField.classList.remove("orange")
+        inputField.classList.remove("yellow")
+        inputField.classList.remove("green")
+        inputField.classList.remove("blue")
+
+        inputField.classList.add(color)
+    })
+}
 
