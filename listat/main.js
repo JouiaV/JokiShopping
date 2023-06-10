@@ -325,7 +325,7 @@ function addNewItemToUncheckedShoppingList(item) {
             remove(exactLocationOfItemInDB)
             push(shoppinglistCheckedInDB, {"value": itemValue, "color": itemColor})
         }, shoppingItemAnimationTime);
-    })
+    }, {once : true});
     
     // OPEN EDIT Dropdown editor triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     dropdownElem.addEventListener("click", function () {
@@ -433,7 +433,7 @@ function addNewItemToCheckedShoppingList(item) {
             let exactLocationOfItemInDB = ref(database, `${shoppinglistCheckedInDB_PATH}/${itemID}`)
             remove(exactLocationOfItemInDB)
         }, shoppingItemAnimationTime);
-    })
+    }, {once : true})
 
     // Uncheck item triggered - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     newTextElem.addEventListener("click", function() {
@@ -443,7 +443,7 @@ function addNewItemToCheckedShoppingList(item) {
             remove(exactLocationOfItemInDB)
             push(shoppinglistUncheckedInDB, {"value": itemValue, "color": itemColor})
         }, shoppingItemAnimationTime);
-    })
+    }, {once : true})
 
     // Adding the element to ul main list
     newLiElem.appendChild(newSpanRemoveElem)
