@@ -24,6 +24,9 @@ luoButtonElem.addEventListener("click", open_luoLista)
 var listani
 update_listani()
 
+
+// update listani lista - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 function update_listani() {
     listaniElem.innerHTML = ""
 
@@ -57,6 +60,7 @@ function update_listani() {
     }
 }
 
+// LIITY LISTAAN - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 async function liity_listaan() {
     errorMsgElem.textContent = ""
     console.log("Etsitään listaa")
@@ -65,6 +69,10 @@ async function liity_listaan() {
 
     if (koodi === "") {
         errorMsgElem.textContent = "Ei löytynyt listaa kyseisellä koodilla."
+        return
+    }
+    else if (is_already_joined_to_lista(koodi)) {
+        errorMsgElem.textContent = "Olet jo liittyneenä kyseiseen listaan."
         return
     }
 
@@ -87,6 +95,7 @@ async function liity_listaan() {
     }
 }
 
+// GET lista info - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 async function get_lista(koodi) {
     const listInDB = ref(database, `lists/${koodi}`)
     var data
@@ -99,6 +108,22 @@ async function get_lista(koodi) {
     return data
 }
 
+// Is already joined to a lista - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+function is_already_joined_to_lista(koodi) {
+    let listani = get_listani()
+
+    for (let i = 0; i < listani.length; i++) {
+        let lista = listani[i]
+        let listaKoodi  = lista["code"]
+        
+        if (listaKoodi === koodi) {
+            return true
+        }
+    }
+    return false
+}
+
+// Open luo lista page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 function open_luoLista() {
     window.location.href = './create_lista/lista_creation.html';
 }
