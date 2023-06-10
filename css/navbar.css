@@ -54,6 +54,7 @@ img.navbar-icon {
     padding-block: 20px;
     margin: 0;
     margin-bottom: 2px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .navbar-option:active {
