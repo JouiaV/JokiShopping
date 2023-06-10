@@ -11,17 +11,13 @@ label {
 }
 
 .createButton {
-    margin-top: 10px;
+    font-size: 25px;
 }
 
 .selitys {
     margin-top: 6px;
     font-size: 18px;
     color: rgb(197, 75, 75);
-}
-
-button {
-    font-size: 25px;
 }
 
 footer {
