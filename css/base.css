@@ -51,6 +51,7 @@ img.main-logo {
     max-width: 320px;
     margin: 0 auto;
     text-align: center;
+    animation: fadeInFromNone 0.5s ease-out;
 }
 
 footer {
@@ -100,3 +101,22 @@ hr {
     border-color: rgb(121, 65, 65);
     border-style: dashed;
 }
+
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
