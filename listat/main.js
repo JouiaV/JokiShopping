@@ -471,8 +471,6 @@ add_eventListener(rdBlueElem, inputFieldElem, "blue")
 
 function add_eventListener(rd, inputField, color) {
     rd.addEventListener("click", function () {
-        console.log("No moi")
-        console.log(color)
         inputField.classList.remove("red")
         inputField.classList.remove("orange")
         inputField.classList.remove("yellow")
