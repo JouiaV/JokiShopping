@@ -1,12 +1,14 @@
 
 /* UNCHECKED */
-
+:root {
+    --border-bottom-height: 4px;
+}
 
 /* ORANGE ======================================================================================== */
 .unchecked li.color-orange {
     color: rgb(107, 69, 46);
     background-color: rgb(252, 203, 157);
-    border-bottom: 3px solid rgb(182, 129, 104);
+    border-bottom: var(--border-bottom-height) solid rgb(182, 129, 104);
 }
 
 .unchecked li.active.color-orange, .unchecked li.color-orange:active {
@@ -30,7 +32,7 @@
 .unchecked li.color-yellow {
     color: rgb(105, 97, 47);
     background-color: rgb(255, 252, 173);
-    border-bottom: 3px solid rgb(182, 182, 104);
+    border-bottom: var(--border-bottom-height) solid rgb(182, 182, 104);
 }
 
 .unchecked li.active.color-yellow, .unchecked li.color-yellow:active {
@@ -53,7 +55,7 @@
 .unchecked li.color-green {
     color: rgb(38, 95, 52);
     background-color: rgb(215, 250, 221);
-    border-bottom: 3px solid rgb(138, 158, 142);
+    border-bottom: var(--border-bottom-height) solid rgb(138, 158, 142);
 }
 
 .unchecked li.active.color-green, .unchecked li.color-green:active {
@@ -76,7 +78,7 @@
 .unchecked li.color-blue {
     color: rgb(42, 57, 99);
     background-color: rgb(215, 242, 250);
-    border-bottom: 3px solid rgb(138, 147, 158);
+    border-bottom: var(--border-bottom-height) solid rgb(138, 147, 158);
 }
 
 .unchecked li.active.color-blue, .unchecked li.color-blue:active {
@@ -104,7 +106,7 @@
 .checked li.color-orange {
     color: rgb(107, 69, 46);
     background-color: rgb(252, 203, 157);
-    border-bottom: 3px solid rgb(182, 129, 104);
+    border-bottom: var(--border-bottom-height) solid rgb(182, 129, 104);
 }
 
 .checked li.active.color-orange, .checked li.color-orange:active {
@@ -127,7 +129,7 @@
 .checked li.color-yellow {
     color: rgb(105, 97, 47);
     background-color: rgb(255, 252, 173);
-    border-bottom: 3px solid rgb(182, 182, 104);
+    border-bottom: var(--border-bottom-height) solid rgb(182, 182, 104);
 }
 
 .checked li.active.color-yellow, .checked li.color-yellow:active {
@@ -150,7 +152,7 @@
 .checked li.color-green {
     color: rgb(38, 95, 52);
     background-color: rgb(215, 250, 221);
-    border-bottom: 3px solid rgb(138, 158, 142);
+    border-bottom: var(--border-bottom-height) solid rgb(138, 158, 142);
 }
 
 .checked li.active.color-green, .checked li.color-green:active {
@@ -173,7 +175,7 @@
 .checked li.color-blue {
     color: rgb(42, 57, 99);
     background-color: rgb(215, 242, 250);
-    border-bottom: 3px solid rgb(138, 147, 158);
+    border-bottom: var(--border-bottom-height) solid rgb(138, 147, 158);
 }
 
 .checked li.active.color-blue, .checked li.color-blue:active {

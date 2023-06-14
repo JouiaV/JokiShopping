@@ -19,12 +19,15 @@
     transition: all 0.1s;
 }
 
+.dropdown {
+    margin: 0;
+}
 
 /* UNCHECKED =========================================================================================================  */
 .unchecked li {
     color: rgb(129, 53, 53);
     background-color: rgb(255, 208, 208);
-    border-bottom: 3px solid rgb(158, 97, 97);
+    border-bottom: 4px solid rgb(158, 97, 97);
     display: flex;
     padding: 0;
 }
@@ -63,7 +66,7 @@
     padding: 0;
     color: rgb(129, 53, 53);
     background-color: rgb(255, 208, 208);
-    border-bottom: 3px solid rgb(158, 97, 97);
+    border-bottom: 4px solid rgb(158, 97, 97);
 }
 
 .checked li.active, .checked li:active {

@@ -20,7 +20,7 @@ window.onscroll = function() {
     if (prevScrollpos > currentScrollPos) {
         navbarElem.style.bottom = "0";
     } else {
-        navbarElem.style.bottom = "-85px";
+        navbarElem.style.bottom = "-60px";
     }
     prevScrollpos = currentScrollPos;
 }
