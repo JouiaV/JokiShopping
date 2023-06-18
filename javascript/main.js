@@ -45,6 +45,7 @@ function update_listani() {
 
         // ON CLICK
         listaElem.addEventListener("click", function () {
+            listaElem.classList.add("active")
             localStorage.setItem("current-lista", koodi)
             localStorage.setItem("current-lista-nimi", nimi)
             window.location.href = './listat/lista.html';

@@ -31,7 +31,7 @@ h2 {
     border-bottom-right-radius: 20px;
 }
 
-.lista:active {
+.lista:active, .lista.active {
     background-color: rgb(88, 38, 38);
     border-bottom: solid 5px rgb(46, 14, 14);
 }
