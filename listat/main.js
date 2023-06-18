@@ -32,6 +32,8 @@ listNameElem.textContent = listaNimi
 const poistuListastaElem = document.querySelector("#poistuListasta")
 const listaKoodiElem = document.querySelector("#koodi-text")
 listaKoodiElem.textContent = `(KOODI: ${listaKoodi})`
+const poistuDialogElem = document.querySelector("#poistuDialog")
+const confirmPoistuBtnElem = document.querySelector("#confirmBtnPoistu")
 
 // color selector
 const redRdElem = document.querySelector("#red")
@@ -43,7 +45,8 @@ const blueRdElem = document.querySelector("#blue")
 const shoppingItemAnimationTime = 150  // milliseconds
 
 addButtonElem.addEventListener("click", add_clicked)
-poistuListastaElem.addEventListener("click", poistuListasta)
+poistuListastaElem.addEventListener("click", openDialogPoistuListasta)
+confirmPoistuBtnElem.addEventListener("click", poistuListasta)
 
 // Add item triggered
 function add_clicked() {
@@ -451,12 +454,6 @@ function addNewItemToCheckedShoppingList(item) {
     shoppingListCheckedElem.appendChild(newLiElem)
 }
 
-// Poistu listasta
-function poistuListasta() {
-    remove_lista_from_listani(listaKoodi)
-    window.location.href = '../index.html';
-}
-
 const rdRedElem = document.getElementById("red")
 const rdOrangeElem = document.getElementById("orange")
 const rdYellowElem = document.getElementById("yellow")
@@ -480,4 +477,19 @@ function add_eventListener(rd, inputField, color) {
         inputField.classList.add(color)
     })
 }
+
+// Poistu Dialog
+function openDialogPoistuListasta() {
+    poistuDialogElem.showModal()
+}
+
+// Poistu listasta
+function poistuListasta() {
+    console.log("postiut")
+    remove_lista_from_listani(listaKoodi)
+    window.location.href = '../index.html';
+}
+
+
+
 

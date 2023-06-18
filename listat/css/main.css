@@ -31,3 +31,27 @@ input[type="text"].input-field {
     font-size: 18px;
 }
 
+.oletkoVarma {
+    font-size: 25px;
+    margin-bottom: 25px;
+    color: rgb(255, 213, 213);
+}
+
+.poistuDialog {
+    background-color: rgb(180, 83, 83);
+    box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.poistuDialog form {
+    text-align: center;
+}
+
+.poistuKylläBtn {
+    width: 90px;
+    margin-right: 20px;
+}
+
+.poistuEiBtn {
+    width: 90px;
+}
