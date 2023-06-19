@@ -46,6 +46,9 @@ function update_listani() {
         // ON CLICK
         listaElem.addEventListener("click", function () {
             listaElem.classList.add("active")
+            window.setTimeout(() => {
+                listaElem.classList.remove("active")
+            }, 1000)
             localStorage.setItem("current-lista", koodi)
             localStorage.setItem("current-lista-nimi", nimi)
             window.location.href = './listat/lista.html';
