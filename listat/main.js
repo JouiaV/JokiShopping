@@ -34,6 +34,7 @@ const listaKoodiElem = document.querySelector("#koodi-text")
 listaKoodiElem.textContent = `(KOODI: ${listaKoodi})`
 const poistuDialogElem = document.querySelector("#poistuDialog")
 const confirmPoistuBtnElem = document.querySelector("#confirmBtnPoistu")
+const kopioiElem = document.querySelector("#kopioi_linkki")
 
 // color selector
 const redRdElem = document.querySelector("#red")
@@ -47,6 +48,13 @@ const shoppingItemAnimationTime = 150  // milliseconds
 addButtonElem.addEventListener("click", add_clicked)
 poistuListastaElem.addEventListener("click", openDialogPoistuListasta)
 confirmPoistuBtnElem.addEventListener("click", poistuListasta)
+kopioiElem.addEventListener("click", kopioi_listaan_liittymislinkki)
+
+// Kopioi listaan liittymislinkki
+function kopioi_listaan_liittymislinkki() {
+    console.log("kopioi")
+    navigator.clipboard.writeText(`https://jouiav.github.io/JokiShopping/join.html?koodi=${listaKoodi}`);
+}
 
 // Add item triggered
 function add_clicked() {
