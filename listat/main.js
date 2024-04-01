@@ -52,7 +52,6 @@ kopioiElem.addEventListener("click", kopioi_listaan_liittymislinkki)
 
 // Kopioi listaan liittymislinkki
 function kopioi_listaan_liittymislinkki() {
-    console.log("kopioi")
     navigator.clipboard.writeText(`https://jouiav.github.io/JokiShopping/join.html?koodi=${listaKoodi}`);
 }
 
@@ -493,7 +492,6 @@ function openDialogPoistuListasta() {
 
 // Poistu listasta
 function poistuListasta() {
-    console.log("postiut")
     remove_lista_from_listani(listaKoodi)
     window.location.href = '../index.html';
 }
