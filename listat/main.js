@@ -21,7 +21,7 @@ const shoppinglistCheckedInDB = ref(database, shoppinglistCheckedInDB_PATH)
 const shoppinglistUncheckedInDB_PATH = `lists/${listaKoodi}/unchecked`  
 const shoppinglistUncheckedInDB = ref(database, shoppinglistUncheckedInDB_PATH)
 
-// const elems
+// const html elems
 const inputFieldElem = document.querySelector("#input-field")
 const addButtonElem = document.querySelector("#add-button")
 const shoppingListUncheckedElem = document.querySelector("#shopping-list-unchecked")
@@ -45,10 +45,17 @@ const blueRdElem = document.querySelector("#blue")
 
 const shoppingItemAnimationTime = 150  // milliseconds
 
+// ADDING eventLiseteners
+inputFieldElem.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      add_clicked()
+    }
+});
 addButtonElem.addEventListener("click", add_clicked)
 poistuListastaElem.addEventListener("click", openDialogPoistuListasta)
 confirmPoistuBtnElem.addEventListener("click", poistuListasta)
 kopioiElem.addEventListener("click", kopioi_listaan_liittymislinkki)
+
 
 // Kopioi listaan liittymislinkki
 function kopioi_listaan_liittymislinkki() {
