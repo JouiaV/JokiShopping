@@ -1,5 +1,6 @@
 
 const navbarElem = document.getElementById("navbar")
+const navbarLogoElem = document.getElementById("navbar_icon")
 const navbarContentElem = document.getElementById("navbar_content")
 const navbarBackdropElem = document.getElementById("navbar-backdrop")
 
@@ -28,6 +29,7 @@ navbarElem.addEventListener("click", () => {
 })
 
 function hide_navbar_content() {
+    navbarLogoElem.src = "../images/open_navbar_icon.png"
     navbarContentElem.style.bottom = `-${navbarContentElemHeight+100}px`
     isNavbarOpen = false
 
@@ -36,7 +38,7 @@ function hide_navbar_content() {
 }
 
 function show_navbar_content() {
-    
+    navbarLogoElem.src = "../images/close_navbar_icon.png"
     navbarContentElem.style.bottom = "0"
     isNavbarOpen = true
 
