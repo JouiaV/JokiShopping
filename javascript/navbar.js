@@ -10,22 +10,6 @@ const navbarContentElemHeight = navbarContentElem.offsetHeight;
 navbarContentElem.style.bottom = `-${navbarContentElemHeight}px`
 
 
-// SHOW NAVABR ON BOTTOM WHEN SCROLL UP
-
-window.onscroll = function() {
-    if (isNavbarOpen) {
-        hide_navbar_content()
-    }
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        navbarElem.style.bottom = "0";
-    } else {
-        navbarElem.style.bottom = "-60px";
-    }
-    prevScrollpos = currentScrollPos;
-}
-
-
 // NAVBAR CONTENT
 
 navbarBackdropElem.addEventListener("click", () => {
@@ -44,7 +28,7 @@ navbarElem.addEventListener("click", () => {
 })
 
 function hide_navbar_content() {
-    navbarContentElem.style.bottom = `-${navbarContentElemHeight}px`
+    navbarContentElem.style.bottom = `-${navbarContentElemHeight+100}px`
     isNavbarOpen = false
 
     navbarBackdropElem.style.width = "0"
@@ -52,7 +36,8 @@ function hide_navbar_content() {
 }
 
 function show_navbar_content() {
-    navbarContentElem.style.bottom = "50px"
+    
+    navbarContentElem.style.bottom = "0"
     isNavbarOpen = true
 
     navbarBackdropElem.style.width = "100%"
