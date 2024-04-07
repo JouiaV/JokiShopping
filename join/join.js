@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
-import { get_listani, add_lista_to_listani } from "./localStorage_listani.js";
+import { get_listani, add_lista_to_listani } from "../javascript/localStorage_listani.js";
 
 
 const appSettings = {

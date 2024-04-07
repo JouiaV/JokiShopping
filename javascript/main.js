@@ -21,16 +21,15 @@ const luoButtonElem = document.getElementById("luoButton")
 liityButtonElem.addEventListener("click", liity_listaan)
 luoButtonElem.addEventListener("click", open_luoLista)
 
-var listani
 update_listani()
 
-
+4
 // update listani lista - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 function update_listani() {
     listaniElem.innerHTML = ""
 
-    listani = get_listani()
+    var listani = get_listani()
 
     for (let i = 0; i < listani.length; i++) {
 
@@ -66,7 +65,7 @@ function update_listani() {
 async function liity_listaan() {
     errorMsgElem.textContent = ""
     
-    let koodi = liityInputElem.value
+    var koodi = liityInputElem.value
 
     if (koodi === "") {
         errorMsgElem.textContent = "Ei löytynyt listaa kyseisellä koodilla."
@@ -82,11 +81,17 @@ async function liity_listaan() {
     if (data.exists()) {
         const val = data.val()
 
-        add_lista_to_listani(val["settings"]["name"], koodi)
+        var nimi = val["settings"]["name"]
+        add_lista_to_listani(nimi, koodi)
 
         liityInputElem.value = ""
 
         update_listani()
+
+        // Mene kyseiseen listaan
+        localStorage.setItem("current-lista", koodi)
+        localStorage.setItem("current-lista-nimi", nimi)
+        window.location.href = './listat/lista.html';
 
     } else {
         errorMsgElem.textContent = "Ei löytynyt listaa kyseisellä koodilla."
@@ -125,4 +130,5 @@ function is_already_joined_to_lista(koodi) {
 function open_luoLista() {
     window.location.href = './create_lista/lista_creation.html';
 }
+
 

@@ -84,7 +84,9 @@ async function is_code_in_use(koodi) {
 function create_lista(nimi, koodi) {
     update(ref(database, `lists/${koodi}/settings`), {"name": nimi})
     add_lista_to_listani(nimi, koodi)
-    window.location.href = '../index.html';
+    localStorage.setItem("current-lista", koodi)
+    localStorage.setItem("current-lista-nimi", nimi)
+    window.location.href = '../listat/lista.html';
 }
 
 
