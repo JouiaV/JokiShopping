@@ -44,7 +44,7 @@ async function update_listani(koodi) {
 
     localStorage.setItem("current-lista", koodi)
     localStorage.setItem("current-lista-nimi", nimi)
-    window.location.href = './listat/lista.html';
+    window.location.href = '../listat/lista.html';
 
 }
 
