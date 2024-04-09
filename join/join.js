@@ -18,7 +18,6 @@ const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const koodi = urlParams.get('koodi')
-console.log(koodi);
 update_listani(koodi)
 
 // update listani lista - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

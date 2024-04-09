@@ -59,7 +59,7 @@ kopioiElem.addEventListener("click", kopioi_listaan_liittymislinkki)
 
 // Kopioi listaan liittymislinkki
 function kopioi_listaan_liittymislinkki() {
-    navigator.clipboard.writeText(`https://jouiav.github.io/JokiShopping/join.html?koodi=${listaKoodi}`);
+    navigator.clipboard.writeText(`https://jouiav.github.io/JokiShopping/join/join.html?koodi=${listaKoodi}`);
     kopioiElem.textContent = "Kopioitu ✔";
     kopioiElem.style.color = "rgb(100, 255, 100)";
     setInterval(function () {
